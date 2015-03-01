@@ -1,0 +1,598 @@
+@import './vendor/semantic.min.css';
+@import './vendor/semantic-ui/elements/icon.scss';
+
+/*
+ if you can see white against it is dark otherwise it is light
+*/
+/*colors*/
+$dark-colors:(
+  "chocolate": #550000,
+  "merlot": #760005,
+  "strawberry":#fa392a,
+  "raspberry": #a61d25,
+  "cranberry": #b53743,
+  "salmon": #e67c6c,
+  "water":#6699cc,
+  "pomegranate": #b24a4a,
+  "jade" : #6cc4bd
+);
+$light-colors:(
+  "apricot": #fc9e56,
+  "peach": #f8a058,
+  "watermelon":#ff6b6b,
+  "papaya":#ffebd8,
+  "cantoloupe": #ffb56b,
+  "graham": #f4d8c0,
+  "mandarin": #ffc290,
+  "tangarine":#ffb380
+);
+/*colors*/
+$chocolate: #550000;
+$merlot: #760005;
+$apricot: #fc9e56;
+$peach: #f8a058;
+$strawberry:#fa392a;
+$watermelon:#ff6b6b;
+$raspberry: #a61d25;
+$cranberry: #b53743;
+$salmon: #e67c6c;
+$papaya:#ffebd8;
+$water:#6699cc;
+$cantoloupe: #ffb56b;
+/* functions */
+
+/*Fonts*/
+@font-face {
+  font-Family: Elephont;
+  src: url(../fonts/Elephont-Regular.otf);
+}
+
+@font-face {
+  font-Family: Comfortaa;
+  src: url(../fonts/Comfortaa-Regular.ttf);
+}
+.ui.header{
+  font-family: "Quicksand";
+}
+ .logo, .ui.item.logo{
+  font-family: "Elephont";
+}
+.ui.menu .item.logo{
+  font-size: 2.2rem;
+  font-weight: bold;
+  padding: 5px;
+}
+.ui.header h1.logo{
+  font-size: 3em;
+}
+h1{
+  font-size: 4rem;
+  margin: 4px;
+}
+@mixin header-colors($name, $color) {
+  .ui.#{$name}.header {
+    color: $color !important;
+  }
+}
+@each $color in map-keys($dark-colors){
+  @include header-colors("#{$color}", map-get($dark-colors, $color));
+}
+@each $color in map-keys($light-colors){
+  @include header-colors("#{$color}", map-get($light-colors, $color));
+}
+body{
+  font-family: "Quicksand";
+}
+
+@font-face {
+  font-Family: Spark;
+  src: url(../fonts/spark4.otf);
+}
+
+@font-face {
+  font-Family: Quicksand;
+  src: url(../fonts/Quicksand-Regular.otf);
+}
+
+/* Input styles*/
+
+.ui.input.pill input {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border:solid 1px;
+    padding:5px;
+    font-family: "Quicksand";
+    font-size: 1.1em;
+}
+.ui.input.currency input{
+  text-align:right;
+  float: right;
+}
+@mixin input-colors($name, $color, $text, $highlight){
+  .ui.input.#{$name} input {
+    border-color:$color;
+    color:$text;
+    background-color: $color;
+  }
+  .ui.icon.input.#{$name} > .icon{
+    color: darken($color, 30%);
+  }
+
+  /* browsers require these rules separate */
+  .ui.input.#{$name} input::-webkit-input-placeholder {
+    color: $text;
+  }
+  .ui.input.#{$name} input::-moz-placeholder {
+    color: $text;
+  }
+  .ui.input.#{$name}.focus input,
+  .ui.input.#{$name} input:focus {
+    border-color: $highlight;
+    color: $text;
+    box-shadow: 0 0 4px $highlight;
+    border-width: 1px;
+  }
+}
+@each $color in map-keys($dark-colors){
+  @include input-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors){
+  @include input-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+}
+/* Menu styles */
+
+.ui.menu{
+  margin: 0 0 0 0;
+  border-radius: 0%;
+}
+@mixin menu-colors($name, $color, $text, $highlight) {
+  .ui.inverted.#{$name}.menu {
+    background-color: $color;
+  }
+  .ui.inverted.#{$name}.menu .item, .ui.inverted.#{$name}.menu .item>a:not(.ui)
+  {
+    color:  $text;
+  }
+
+  .ui.menu .#{$name}.active.item,
+  .ui.#{$name}.menu .active.item {
+    border-color: $highlight !important;
+    color:  $highlight !important;
+  }
+}@each $color in map-keys($dark-colors){
+  @include menu-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors){
+  @include menu-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+}
+/*
+.ui.menu .cranberry.active.item,
+.ui.blue.menu .active.item {
+  border-color: $salmon !important;
+  color: $salmon !important;
+}
+.ui.menu .strawberry.active.item,
+.ui.blue.menu .active.item {
+  border-color: $salmon !important;
+  color: $salmon !important;
+}
+.ui.menu .watermelon.active.item,
+.ui.blue.menu .active.item {
+  border-color: $salmon !important;
+  color: $salmon !important;
+}
+.ui.inverted.cranberry.menu {
+  background-color: $cranberry;
+}
+.ui.inverted.strawberry.menu {
+  background-color: $strawberry;
+}
+
+.ui.inverted.watermelon.menu {
+  background-color: $watermelon;
+}
+*/
+
+/*Drop Down Style*/
+.ui.selection.dropdown.pill {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: solid 1px;
+  font-family: "Quicksand";
+  font-size: 1.1em;
+  padding: 6.5px;
+}
+.ui.selection.dropdown.pill .menu {
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+  -moz-border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: solid 1px;
+}
+@mixin dropdown-colors($name, $color, $text, $highlight) {
+  .ui.selection.dropdown.#{$name} {
+    border-color: $color;
+    color: $text;
+    background-color: $color;
+  }
+
+  .ui.dropdown.#{$name} .menu {
+    color: $text;
+    padding: 6.5px;
+    background-color: $color;
+    font-family: "Quicksand";
+    font-size: 1.1em;
+  }
+  .ui.dropdown.#{$name}  .menu > .item {
+    color: $text;
+  }
+  .ui.selection.dropdown.#{$name} .visible {
+    border: 1px solid $highlight;
+    box-shadow: 0 10px -10px 0 $highlight;
+  }
+  .ui.selection.visible.dropdown.#{$name}  .menu {
+    border-color: $highlight;
+    box-shadow: 0 0 10px -2 $highlight;
+  }
+  .ui.selection.visible.dropdown.#{$name}:hover .menu {
+    border: 1px solid $highlight;
+    box-shadow: 0 10px -2px 0 $highlight;
+  }
+  .ui.selection.visible.dropdown.#{$name}:hover {
+    border-color: $highlight;
+    box-shadow: 0 0 10px 0 $highlight;
+  }
+  .ui.dropdown.#{$name}  .menu .selected.item, .ui.dropdown.selected {
+    color: $text;
+  }
+  .ui.selection.active.dropdown.#{$name}  > .text:not(.default), .ui.selection.visible.dropdown.#{$name}  > .text:not(.default) {
+    color: $highlight;
+  }
+  .ui.dropdown.#{$name}  > .default.text, .ui.default.dropdown.#{$name}  > .text {
+    color: $text;
+  }
+  .ui.selection.dropdown.#{$name}  > .search.icon, .ui.selection.dropdown.#{$name}  > .delete.icon, .ui.selection.dropdown.#{$name}  > .dropdown.icon {
+    color: darken($color, 30%);
+  }
+  .ui.input .focus input,
+  .ui.input input:focus {
+    border-color: $peach;
+    color: $papaya;
+    box-shadow: 0 0 4px $peach;
+    border-width: 1px;
+  }
+}
+
+@each $color in map-keys($dark-colors){
+  @include dropdown-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors){
+  @include dropdown-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+}
+/* textarea */
+  .ui.form.pill textarea, .ui.pill.textarea {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: solid 1px;
+    padding: 5px;
+    font-family: "Quicksand";
+    font-size: 1.1em;
+  }
+@mixin textarea-colors($name, $color, $text, $highlight) {
+  .ui.form.#{$name} textarea, .ui.pill.textarea {
+    border-color: $color;
+    color: $text;
+    background-color: $color
+  }
+  /* browsers require these rules separate */
+  .ui.form.#{$name} ::-webkit-input-placeholder {
+    color: $text;
+  }
+  .ui.form.#{$name} ::-moz-placeholder {
+    color: $text;
+  }
+  .ui.form.#{$name} :focus::-webkit-input-placeholder {
+    color: $text;
+  }
+  .ui.form.#{$name} :focus::-moz-placeholder {
+    color: $text;
+  }
+
+  .ui.form.#{$name} textarea:focus {
+    color: $text;
+    border-color: $highlight;;
+    border: solid 1px;
+    background: $color;
+    box-shadow: 1px 0em 0em 0em $highlight;
+    -webkit-appearance: none;
+  }
+}
+@each $color in map-keys($dark-colors){
+  @include textarea-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors){
+  @include textarea-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+}
+.ball {
+  width: 50px;
+  height: 50px;
+  background: #e67c6c;
+  border: 3px solid #e67c6c;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.ball:hover {
+  width: 500px;
+  border-radius: 200px;
+  transition: width 400ms  ease-in;
+  border-color: $peach;
+  box-shadow: 0 0 4px $peach;
+  border-width: 1px;
+}
+.noticon i{
+  margin-top: 33%;
+  margin-left: 25%;
+  color: $peach;
+}
+.noticon{
+  /*
+  margin-top: 7.5%;
+  margin-left: 7.5%;
+  */
+  margin-top: 3.388px;
+  margin-left: 3.388px;
+
+  position: absolute;
+  /*
+  width: 85%;
+  height: 85%;
+  */
+  width: 38.412px;
+  height: 38.412px;
+  background-color: $merlot;
+  border-radius: 50%;
+}
+.ball:hover .noticon {
+  /*width: 7.7%;*/
+  width: 38.412px;
+  /*
+  margin-left: .67%;
+  margin-top: .67%;
+  */
+  border-color: $peach;
+  box-shadow: 0 0 4px $peach;
+  border-width: 1px;
+  margin-left: 5.313px;
+  margin-top: 5.313px;
+}
+.message {
+  margin-left: 48px;
+  margin-top: 5.313px;
+  padding: 3px 3px 3px 0;
+  display:none;
+  color: $papaya;
+  height: 38.412px;
+  width: 430px;
+}
+.ball:hover .message {
+  display:block;
+}
+.ui.menu .logo.item>i.icon{
+  opacity:1;
+}
+i.icon.brazier:before {
+  font-family: 'Spark';
+  font-size: 1.12em;
+  margin: 0 0 0 0;
+  content: "\50";
+}
+i.icon.open-spark:before {
+  font-family: 'Spark';
+  font-size: 1em;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  content: "\0024";
+}
+i.icon.close-spark:before, i.icon.sparks:before {
+  font-family: 'Spark';
+  font-size: 1em;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  content: "\002A";
+}
+i.icon.brazier{
+  line-height: .3;
+}
+
+.noticon i.icon.brazier{
+  font-size: 20px;
+}
+/* button */
+.ui.button.pill{
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  border: solid 1px;
+}
+.ui.buttons.pill .button:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.ui.buttons.pill .button:first-child{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.ui.buttons.pill .button{
+  padding: 13px;
+}
+.ui.buttons.pill .or{
+  margin-top: 3px;
+}
+.ui.button{
+  font-family: "Quicksand";
+}
+
+@mixin button-colors($name, $color, $text, $highlight) {
+  .ui.button.#{$name}, .ui.button.#{$name}.basic {
+    border-color: $color;
+    color: $text;
+    background-color: $color;
+  }
+  .ui.active.button.#{$name}:active, .ui.button.#{$name}:active,
+  .ui.button.basic.#{$name}:active, .ui.active.button.basic.#{$name}:active {
+    border-color: darken($highlight, 5%);
+    color: darken($text, 5%);
+    background-color: darken($color, 5%);
+  }
+  .ui.active.button.#{$name}:hover, .ui.button.#{$name}:hover,
+  .ui.buttons.ui.active.button.#{$name}:hover, .ui.buttons .ui.button.#{$name}:hover {
+    border-color: lighten($highlight, 5%);
+    color: lighten($text, 5%);
+    background-color: lighten($color, 5%);
+    box-shadow: 0 0 4px $highlight;
+  }
+}
+
+@each $color in map-keys($dark-colors){
+  @include button-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors) {
+  @include button-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+}
+/*segment*/
+.ui.segment.pill {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  border: solid 1px;
+  padding: 10px;
+  font-family: "Quicksand";
+  font-size: 1.1em;
+
+}
+@mixin segment-colors($name, $color, $text, $highlight) {
+  .ui.segment.#{$name} {
+    border-color: $highlight;
+    color: $text;
+    background-color: $color;
+    box-shadow: 0 0 4px $highlight;
+  }
+}
+@each $color in map-keys($dark-colors){
+  @include segment-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors) {
+  @include segment-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+
+}
+/*billboard*/
+@mixin billboard-colors($name, $color, $text, $highlight) {
+  .top-billboard.#{$name} {
+    position: relative;
+    overflow: hidden;
+    background-color: $color;
+    text-align: center;
+    padding: 50px 0px;
+    color:  $text;
+    margin-bottom: 0px;
+    border-bottom: none;
+    position: absolute;
+    width: 100%;
+    z-index:1;
+  }
+  .bottom-billboard.#{$name} {
+    position: relative;
+    overflow: hidden;
+    background-color: $color;
+    text-align: center;
+    padding: 50px 0px;
+    color:  $text;
+    margin-bottom: 0px;
+    border-bottom: none;
+    position: absolute;
+    width: 100%;
+    z-index:1;
+
+  }
+}
+@each $color in map-keys($dark-colors){
+  @include billboard-colors("#{$color}", map-get($dark-colors, $color), map-get($light-colors, "papaya"), map-get($light-colors, "peach"));
+}
+@each $color in map-keys($light-colors) {
+  @include billboard-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
+
+}
+
+
+.papaya-background{
+  background-color: map-get($light-colors, "papaya");
+}
+.grey-background{
+  background-color: #e1eaf1;
+}
+.mandarin-background{
+  background-color: map-get($light-colors, "mandarin");
+}
+$circle-width: 800px;
+.content-earth{
+  top:120px;
+  margin: 0 auto;
+  text-align: center;
+  width: $circle-width;
+  height: $circle-width;
+  border-radius: 50%;
+  background-image:url(../images/earth-512px.svg);
+  background-size: cover;
+  overflow: hidden;
+  padding:($circle-width * .15);
+  position: relative;
+  z-index:3;
+ }
+.content-moon{
+  top:300px;
+  left:10%;
+  margin: 0 auto;
+  text-align: center;
+  width: $circle-width * .40;
+  height: $circle-width * .40;
+  border-radius: 50%;
+  background-image:url(../images/moon-512px.svg);
+  background-size: cover;
+  overflow: hidden;
+  padding:($circle-width * .06);
+  position: absolute;
+
+  z-index:5;
+}
+.content-sun{
+  top:300px;
+  right:5%;
+  margin: 0 auto;
+  text-align: center;
+  width: $circle-width * .80;
+  height: $circle-width * .80;
+  border-radius: 50%;
+  background-image:url(../images/sun2-512px.svg);
+  background-size: cover;
+  overflow: hidden;
+  padding:($circle-width * .06);
+  position: absolute;
+
+  z-index:2;
+}
+.shadow{
+
+  box-shadow:5px 2px 20px grey;
+}
+.container{
+  position:"relative";
+  width: 100%;
+  height: 100%;
+}
