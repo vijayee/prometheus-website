@@ -166,33 +166,6 @@ body{
 @each $color in map-keys($light-colors){
   @include menu-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
 }
-/*
-.ui.menu .cranberry.active.item,
-.ui.blue.menu .active.item {
-  border-color: $salmon !important;
-  color: $salmon !important;
-}
-.ui.menu .strawberry.active.item,
-.ui.blue.menu .active.item {
-  border-color: $salmon !important;
-  color: $salmon !important;
-}
-.ui.menu .watermelon.active.item,
-.ui.blue.menu .active.item {
-  border-color: $salmon !important;
-  color: $salmon !important;
-}
-.ui.inverted.cranberry.menu {
-  background-color: $cranberry;
-}
-.ui.inverted.strawberry.menu {
-  background-color: $strawberry;
-}
-
-.ui.inverted.watermelon.menu {
-  background-color: $watermelon;
-}
-*/
 
 /*Drop Down Style*/
 .ui.selection.dropdown.pill {
@@ -582,7 +555,7 @@ $circle-width: 800px;
   background-image:url(../images/sun2-512px.svg);
   background-size: cover;
   overflow: hidden;
-  padding:($circle-width * .06);
+  padding:($circle-width * .12);
   position: absolute;
 
   z-index:2;
