@@ -10,19 +10,37 @@
         <script src="javascript/vendor/requirejs/require.js" data-main="javascript/app/main.js" ></script>
     </head>
     <body>
-    <div class="container">
-        <div class="ui pomegranate inverted menu">
-            <a class="right item">
-                <i class="home icon"></i> About
-            </a>
-            <a class="right item">
-                <i class="mail icon"></i> Contact Us
-            </a>
-            <a class="right item">
-                <i class="user icon"></i> Beta
-            </a>
-            <a class="logo item"> <i class="brazier icon"></i>Prometheus</a>
+    <div id="Navigation" class="ui pomegranate inverted menu">
+        <a class="right item">
+            <i class="home icon"></i> About
+        </a>
+        <a class="right item" id="ContactLink">
+            <i class="mail icon"></i> Contact Us
+        </a>
+        <a class="right item">
+            <i class="user icon"></i> Beta
+        </a>
+        <a class="logo item"> <i class="brazier icon"></i>Prometheus</a>
+    </div>
+    <div id="ContactContainer" class="contact-container">
+        <a id="CloseContact"> <i class="close circular inverted icon"></i>Close</a>
+        <div class="ui two column centered grid">
+            <div class="column"></div>
+            <div class="four column centered row">
+                <div class="column"> Holy grail beta deployment responsive web design founders facebook infrastructure iPad. Sales android stealth branding user experience social media hackathon customer ownership founders crowdsource.</div>
+                <div class="column">Ecosystem success freemium user experience social proof launch party. Backing funding freemium ecosystem. Accelerator channels return on investment twitter seed round client scrum project freemium investor iPad crowdsource handshake. Social proof non-disclosure agreement research & development www.discoverartisans.com iPad burn rate</div>
+            </div>
         </div>
+        <div class="ui two column centered grid">
+            <div class="column"></div>
+            <div class="four column centered row">
+                <div class="column"></div>
+                <div class="column"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
         <div class="top-billboard pomegranate">
             <h1 class="logo"><i class="icon open-spark"></i>Prometheus<i class="icon close-spark "></i></h1>
         </div>

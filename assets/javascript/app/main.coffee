@@ -9,3 +9,11 @@ require
     dropdown:'../vendor/semantic/dropdown'
   ['jquery']
   ($)->
+    $('#ContactLink').on 'click', ->
+      $("#ContactContainer").addClass("expanded")
+      $("#Navigation").addClass("steel")
+      $("#Navigation").removeClass("pomegranate")
+    $('#CloseContact').on 'click', ->
+      $("#ContactContainer").removeClass("expanded")
+      $("#Navigation").removeClass("steel")
+      $("#Navigation").addClass("pomegranate")

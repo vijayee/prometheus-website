@@ -24,7 +24,8 @@ $light-colors:(
   "cantoloupe": #ffb56b,
   "graham": #f4d8c0,
   "mandarin": #ffc290,
-  "tangarine":#ffb380
+  "tangarine":#ffb380,
+  "steel": #e1eaf1
 );
 /*colors*/
 $chocolate: #550000;
@@ -145,6 +146,9 @@ body{
 .ui.menu{
   margin: 0 0 0 0;
   border-radius: 0%;
+  z-index:100;
+  position: relative;
+  width:100%;
 }
 @mixin menu-colors($name, $color, $text, $highlight) {
   .ui.inverted.#{$name}.menu {
@@ -472,11 +476,13 @@ i.icon.brazier{
     overflow: hidden;
     background-color: $color;
     text-align: center;
-    padding: 50px 0px;
+    padding: 8px 0px 42px 0px;
     color:  $text;
+    margin-top:41px;
     margin-bottom: 0px;
     border-bottom: none;
-    position: absolute;
+    position: fixed;
+    top: 0px;
     width: 100%;
     z-index:1;
   }
@@ -484,12 +490,12 @@ i.icon.brazier{
     position: relative;
     overflow: hidden;
     background-color: $color;
-    text-align: center;
     padding: 50px 0px;
+    bottom:0px;
     color:  $text;
     margin-bottom: 0px;
     border-bottom: none;
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index:1;
 
@@ -508,7 +514,7 @@ i.icon.brazier{
   background-color: map-get($light-colors, "papaya");
 }
 .grey-background{
-  background-color: #e1eaf1;
+  background-color: map-get($light-colors, "steel");
 }
 .mandarin-background{
   background-color: map-get($light-colors, "mandarin");
@@ -516,7 +522,9 @@ i.icon.brazier{
 $circle-width: 800px;
 .content-earth{
   top:120px;
-  margin: 0 auto;
+  left:50%;
+  transform: translate(-50%, 0);
+  margin: auto auto;
   text-align: center;
   width: $circle-width;
   height: $circle-width;
@@ -525,7 +533,7 @@ $circle-width: 800px;
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .15);
-  position: relative;
+  position: fixed;
   z-index:3;
  }
 .content-moon{
@@ -540,7 +548,7 @@ $circle-width: 800px;
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .06);
-  position: absolute;
+  position: fixed;
 
   z-index:5;
 }
@@ -556,7 +564,7 @@ $circle-width: 800px;
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .12);
-  position: absolute;
+  position: fixed;
 
   z-index:2;
 }
@@ -568,4 +576,22 @@ $circle-width: 800px;
   position:"relative";
   width: 100%;
   height: 100%;
+  position:fixed;
+}
+.contact-container{
+  width:0%;
+  height:0%;
+  overflow: hidden;
+  background-color:map-get($light-colors, "steel");
+  -moz-transition: height .5s; /* Firefox 4 */
+  -webkit-transition: height .5s; /* Safari and Chrome */
+  -o-transition: height .5s; /* Opera */
+}
+.expanded, .contact-container.expanded{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  position:relative;
 }

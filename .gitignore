@@ -5,6 +5,7 @@
 ## Directory-based project format
 .idea/
 public/
+.sass-cache/
 /*.iml
 # if you remove the above rule, at least ignore user-specific stuff:
 # .idea/workspace.xml
