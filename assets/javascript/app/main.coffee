@@ -9,11 +9,26 @@ require
     dropdown:'../vendor/semantic/dropdown'
   ['jquery']
   ($)->
-    $('#ContactLink').on 'click', ->
-      $("#ContactContainer").addClass("expanded")
-      $("#Navigation").addClass("steel")
-      $("#Navigation").removeClass("pomegranate")
-    $('#CloseContact').on 'click', ->
-      $("#ContactContainer").removeClass("expanded")
-      $("#Navigation").removeClass("steel")
-      $("#Navigation").addClass("pomegranate")
+    toggleContact=(e) ->
+      console.log(e)
+      container= $($(e.currentTarget).data("container"))
+      color= $(e.currentTarget).data("color")
+      console.log(container.hasClass("expanded"))
+      if not container.hasClass("expanded")
+        console.log($(".expanded").find(".close"))
+        $(".expanded").find(".close").trigger('click')
+        container.addClass("expanded")
+        $("#Navigation").removeClass("pomegranate")
+        $("#Navigation").addClass(color)
+      else
+        container.removeClass("expanded")
+        $("#Navigation").removeClass(color)
+        $("#Navigation").addClass("pomegranate")
+
+    $('#ContactLink').on 'click', toggleContact
+
+    $('#CloseContact').on 'click', toggleContact
+
+    $('#AboutLink').on 'click', toggleContact
+
+    $('#CloseAbout').on 'click', toggleContact

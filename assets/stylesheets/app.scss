@@ -519,6 +519,9 @@ i.icon.brazier{
 .mandarin-background{
   background-color: map-get($light-colors, "mandarin");
 }
+.pomegranate-background{
+  background-color: map-get($dark-colors, "pomegranate");
+}
 $circle-width: 800px;
 .content-earth{
   top:120px;
@@ -583,6 +586,16 @@ $circle-width: 800px;
   height:0%;
   overflow: hidden;
   background-color:map-get($light-colors, "steel");
+  -moz-transition: height .5s; /* Firefox 4 */
+  -webkit-transition: height .5s; /* Safari and Chrome */
+  -o-transition: height .5s; /* Opera */
+}
+.about-container{
+  width:0%;
+  height:0%;
+  overflow: hidden;
+  background-color: map-get($dark-colors, "pomegranate");
+  color: map-get($light-colors, "papaya");
   -moz-transition: height .5s; /* Firefox 4 */
   -webkit-transition: height .5s; /* Safari and Chrome */
   -o-transition: height .5s; /* Opera */
