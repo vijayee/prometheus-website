@@ -10,7 +10,7 @@ module.exports=(grunt)->
     coffee:
       glob_to_multiple:
         options:
-          sourceMap: true
+          sourceMap: false
         expand: true
         cwd: 'assets/'
         src: ['**/*.coffee']

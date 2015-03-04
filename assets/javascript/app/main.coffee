@@ -10,13 +10,15 @@ require
   ['jquery']
   ($)->
     toggleContact=(e) ->
-      console.log(e)
       container= $($(e.currentTarget).data("container"))
       color= $(e.currentTarget).data("color")
-      console.log(container.hasClass("expanded"))
       if not container.hasClass("expanded")
-        console.log($(".expanded").find(".close"))
-        $(".expanded").find(".close").trigger('click')
+        expanded= $(".expanded")
+        if expanded.length > 0
+          closelink= expanded.find("a.close")
+          expanded.removeClass("expanded")
+          $("#Navigation").removeClass(closelink.data("color"))
+          $("#Navigation").addClass("pomegranate")
         container.addClass("expanded")
         $("#Navigation").removeClass("pomegranate")
         $("#Navigation").addClass(color)
@@ -32,3 +34,11 @@ require
     $('#AboutLink').on 'click', toggleContact
 
     $('#CloseAbout').on 'click', toggleContact
+
+    $('#BlogLink').on 'click', toggleContact
+
+    $('#CloseBlog').on 'click', toggleContact
+
+    $('#FAQLink').on 'click', toggleContact
+
+    $('#CloseFAQ').on 'click', toggleContact
