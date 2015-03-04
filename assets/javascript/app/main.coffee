@@ -6,9 +6,10 @@ require
       deps:['jquery']
   paths:
     jquery: '../vendor/jquery/jquery-2.1.1.min'
-    dropdown:'../vendor/semantic/dropdown'
-  ['jquery']
-  ($)->
+    dropdown:'../vendor/semantic/dropdown',
+    scrollmagic:'../vendor/scrollmagic/ScrollMagic'
+  ['jquery','scrollmagic']
+  ($, ScrollMagic)->
     toggleContact=(e) ->
       container= $($(e.currentTarget).data("container"))
       color= $(e.currentTarget).data("color")
