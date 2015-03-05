@@ -557,6 +557,22 @@ $circle-width: 800px;
 
   z-index:5;
 }
+.max-moon{
+  top:120px;
+  left:50%;
+  transform: translate(-50%, 0);
+  margin: auto auto;
+  text-align: center;
+  width: $circle-width;
+  height: $circle-width;
+  border-radius: 50%;
+  background-image:url(../images/moon-512px.svg);
+  background-size: cover;
+  overflow: hidden;
+  padding:($circle-width * .15);
+  position: fixed;
+  z-index:5;
+}
 .content-sun{
   top:300px;
   right:5%;
@@ -572,6 +588,24 @@ $circle-width: 800px;
   position: fixed;
 
   z-index:2;
+}
+.content-coin{
+  top:120px;
+  left:50%;
+  transform: translate(-50%, 0);
+  margin: auto auto;
+  text-align: center;
+  width: $circle-width;
+  height: $circle-width;
+  border-radius: 50%;
+  background-image:url(../images/coin-512px.svg);
+  background-color: map-get($dark-colors, "pomegranate");
+  background-size: cover;
+  overflow: hidden;
+  padding:($circle-width * .15);
+  position: fixed;
+  display:none;
+  z-index:9;
 }
 .shadow{
 
