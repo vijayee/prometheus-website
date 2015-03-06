@@ -83,7 +83,7 @@ h1{
 }
 body{
   font-family: "Quicksand";
-  height:2500px;
+  height:5000px;
 }
 
 @font-face {
@@ -600,6 +600,25 @@ $circle-width: 800px;
   border-radius: 50%;
   background-image:url(../images/coin-512px.svg);
   background-color: map-get($dark-colors, "pomegranate");
+  background-size: cover;
+  overflow: hidden;
+  padding:($circle-width * .15);
+  position: fixed;
+  display:none;
+  z-index:9;
+}
+
+.content-clock{
+  top:120px;
+  left:50%;
+  transform: translate(-50%, 0);
+  margin: auto auto;
+  text-align: center;
+  width: $circle-width;
+  height: $circle-width;
+  border-radius: 50%;
+  background-image:url(../images/clock-512px.svg);
+  background-color: #c1a2a2;
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .15);
