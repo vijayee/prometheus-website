@@ -554,24 +554,13 @@ $circle-width: 800px;
   overflow: hidden;
   padding:($circle-width * .06);
   position: fixed;
-
   z-index:5;
 }
-.max-moon{
-  top:120px;
-  left:50%;
-  transform: translate(-50%, 0);
-  margin: auto auto;
-  text-align: center;
-  width: $circle-width;
-  height: $circle-width;
-  border-radius: 50%;
-  background-image:url(../images/moon-512px.svg);
-  background-size: cover;
-  overflow: hidden;
-  padding:($circle-width * .15);
-  position: fixed;
-  z-index:5;
+
+@media screen and (max-width: 995px){
+  .content-moon {
+    z-index: 2;
+  }
 }
 .content-sun{
   top:300px;

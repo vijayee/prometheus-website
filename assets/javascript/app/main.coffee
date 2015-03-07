@@ -47,28 +47,21 @@ require
 
     controller = new ScrollMagic.Controller()
     scene1 = new ScrollMagic.Scene
-      trigger: '#container'
       offset: 30
       duration: 400
     scene2 = new ScrollMagic.Scene
-      trigger: '#container'
       offset: 480
       duration: 400
     scene3 = new ScrollMagic.Scene
-      trigger: '#container'
       offset: 900
       duration: 400
-
     scene4 = new ScrollMagic.Scene
-      trigger: '#container'
-      offset: 1300
+      offset: 1500
       duration: 400
     scene5 = new ScrollMagic.Scene
-      trigger: '#container'
       offset: 1800
       duration: 400
     scene6 = new ScrollMagic.Scene
-      trigger: '#container'
       offset: 2200
       duration: 400
     moon=$('#moon')
@@ -77,19 +70,19 @@ require
     coin=$('#coin')
     clock=$('#clock')
 
-    moonTween1 = TweenMax.to(moon, 10, {width: "800px", height:"800px", top: "120px", left:"50%", transform:"translate(-400px, 0)",  ease:Expo.easeIn})
-    sunTween1= TweenMax.to(sun, 10, {width: "250px", height:"250px", top: "200px", right:"50%", transform:"translate(160px, 0)",  ease:Expo.easeIn})
-    moonTween2 = TweenMax.to(moon, 20, {width: "250px", height:"250px", top: "400px", left:"95%", zIndex:2, ease:Expo.easeIn})
-    sunTween2= TweenMax.to(sun, 20, {width: "400px", height:"400px", top: "120px", right:"90%", transform:"translate(162px, 0)",  ease:Expo.easeIn})
+    moonTween1 = TweenMax.to(moon, 10, {width: "800px", height:"800px", top: "120px", left:"50%", padding:"120px", zIndex:5, transform:"translate(-400px, 0)",  ease:Expo.easeIn})
+    sunTween1= TweenMax.to(sun, 10, {width: "250px", height:"250px", top: "200px", right:"50%", padding:"30px", transform:"translate(160px, 0)",  ease:Expo.easeIn})
+    moonTween2 = TweenMax.to(moon, 20, {width: "250px", height:"250px", top: "400px", left:"95%", padding:"30px", zIndex:2, ease:Expo.easeIn})
+    sunTween2= TweenMax.to(sun, 20, {width: "400px", height:"400px", top: "120px", right:"90%", padding:"48px", transform:"translate(162px, 0)",  ease:Expo.easeIn})
     moonTween3 = TweenMax.to(moon, 10, {width: "60px", height:"60px", top: "200px", left:"50%", zIndex:2, transform:"translate(-20px, 0)",  ease:Expo.easeIn})
-    sunTween3= TweenMax.to(sun, 10, {width: "800px", height:"800px", top: "120px", left:"50%", zIndex:5, transform:"translate(-400px, 0)",  ease:Expo.easeIn})
+    sunTween3= TweenMax.to(sun, 10, {width: "800px", height:"800px", top: "120px", left:"50%", padding:"120px", zIndex:5, transform:"translate(-400px, 0)",  ease:Expo.easeIn})
     moonTween4 = TweenMax.to(moon, 5, {display:"none",  ease:Expo.easeIn})
     sunTween4= TweenMax.to(sun, 5, {display: "none", ease:Expo.easeIn})
-    earthTween4= TweenMax.to(earth, 5, {display: "none", ease:Expo.easeIn})
-    clockTween4= TweenMax.to(clock, 5, {display: "block", ease:Expo.easeIn})
-    clockTween5= TweenMax.to(clock, 10, {width: "60px", height:"60px", top: "300px", left:"10%", zIndex:2, transform:"translate(-20px, 0)",  ease:Expo.easeIn})
-    coinTween5= TweenMax.to(coin, 5, {display: "block", zIndex:3, ease:Expo.easeIn})
-    earthTween6= TweenMax.to(earth, 30, {display: "block", width: "600px", height:"600px", top:"180px", ease:Expo.easeIn})
+    earthTween4= TweenMax.to(earth, 30, {display: "none", ease:Expo.easeIn})
+    clockTween4= TweenMax.to(clock, 30, {display: "block", ease:Expo.easeIn})
+    clockTween5= TweenMax.to(clock, 30, {width: "60px", height:"60px", top: "300px", left:"10%", zIndex:2, transform:"translate(-20px, 0)",  ease:Expo.easeIn})
+    coinTween5= TweenMax.to(coin, 10, {display: "block", zIndex:3, ease:Expo.easeIn})
+    earthTween6= TweenMax.to(earth, 30, {display: "block", width: "600px", height:"600px", top:"180px", padding:"90px", ease:Expo.easeIn})
     coinTween6= TweenMax.to(coin, 10, {width: "60px", height:"60px", top: "300px", zIndex:2, left:"80%", transform:"translate(30px, 0)",  ease:Expo.easeIn})
     tween1=new TimelineMax()
     tween2=new TimelineMax()
