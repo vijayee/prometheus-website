@@ -14,7 +14,8 @@ $dark-colors:(
   "salmon": #e67c6c,
   "water":#6699cc,
   "pomegranate": #b24a4a,
-  "jade" : #6cc4bd
+  "jade" : #6cc4bd,
+  "grape": #916f6f
 );
 $light-colors:(
   "apricot": #fc9e56,
@@ -46,6 +47,11 @@ $cantoloupe: #ffb56b;
 @font-face {
   font-Family: Elephont;
   src: url(../fonts/Elephont-Regular.otf);
+}
+
+@font-face {
+  font-Family: OneDance;
+  src: url(../fonts/One_dance.ttf);
 }
 
 @font-face {
@@ -498,7 +504,7 @@ i.icon.brazier{
     border-bottom: none;
     position: fixed;
     width: 100%;
-    height: 200px;
+    height: 155px;
     z-index:1;
 
   }
@@ -696,4 +702,32 @@ $circle-width: 800px;
 @each $color in map-keys($light-colors) {
   @include close-icon-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
 
+}
+
+.dollar{
+  width: 2480px;
+  height:668px;
+  background-image:url(../images/sparkmark.svg);
+  background-color: map-get($light-colors, "graham");
+  font-family:OneDance;
+  top: 128px;
+  z-index: 1;
+  position: fixed;
+  opacity: 0;
+}
+.dollar-marquee {
+  font-family: OneDance;
+  color: map-get($dark-colors, "grape");
+  font-size: 40px;
+  position:relative;
+
+}
+
+.left {
+  top: 76px;
+  left: 300px;
+}
+.right{
+  top: 76px;
+  right: 300px;
 }

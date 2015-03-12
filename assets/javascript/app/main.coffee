@@ -69,6 +69,7 @@ require
     earth=$('#earth')
     coin=$('#coin')
     clock=$('#clock')
+    dollar=$('.dollar')
 
     moonTween1 = TweenMax.to(moon, 10, {width: "800px", height:"800px", top: "120px", left:"50%", padding:"120px", zIndex:5, transform:"translate(-400px, 0)",  ease:Expo.easeIn})
     sunTween1= TweenMax.to(sun, 10, {width: "250px", height:"250px", top: "200px", right:"50%", padding:"30px", transform:"translate(160px, 0)",  ease:Expo.easeIn})
@@ -82,8 +83,9 @@ require
     clockTween4= TweenMax.to(clock, 30, {display: "block", ease:Expo.easeIn})
     clockTween5= TweenMax.to(clock, 30, {width: "60px", height:"60px", top: "300px", left:"10%", zIndex:2, transform:"translate(-20px, 0)",  ease:Expo.easeIn})
     coinTween5= TweenMax.to(coin, 10, {display: "block", zIndex:3, ease:Expo.easeIn})
-    earthTween6= TweenMax.to(earth, 30, {display: "block", width: "600px", height:"600px", top:"180px", padding:"90px", ease:Expo.easeIn})
+    earthTween6= TweenMax.to(earth, 30, {display: "block", width: "600px", height:"600px", top:"160px", padding:"90px", ease:Expo.easeIn})
     coinTween6= TweenMax.to(coin, 10, {width: "60px", height:"60px", top: "300px", zIndex:2, left:"80%", transform:"translate(30px, 0)",  ease:Expo.easeIn})
+    dollarTween6= TweenMax.to(dollar, 30, {opacity:"100", "block", ease:Expo.easeIn})
     tween1=new TimelineMax()
     tween2=new TimelineMax()
     tween3=new TimelineMax()
@@ -105,6 +107,7 @@ require
     tween5.insert(coinTween5,0)
     tween6.insert(coinTween6,0)
     tween6.insert(earthTween6,0)
+    tween6.insert(dollarTween6,0)
 
     scene1.setTween(tween1)
     scene1.addIndicators()
