@@ -64,6 +64,9 @@ require
     scene6 = new ScrollMagic.Scene
       offset: 2200
       duration: 400
+    scene7 = new ScrollMagic.Scene
+       offset: 2600
+       duration: 10
     moon=$('#moon')
     sun=$('#sun')
     earth=$('#earth')
@@ -86,12 +89,16 @@ require
     earthTween6= TweenMax.to(earth, 30, {display: "block", width: "600px", height:"600px", top:"160px", padding:"90px", ease:Expo.easeIn})
     coinTween6= TweenMax.to(coin, 10, {width: "60px", height:"60px", top: "300px", zIndex:2, left:"80%", transform:"translate(30px, 0)",  ease:Expo.easeIn})
     dollarTween6= TweenMax.to(dollar, 30, {opacity:"100", "block", ease:Expo.easeIn})
+    earthTween7= TweenMax.to(earth, 30, {display: "none", ease:Expo.easeIn})
+    coinTween7= TweenMax.to(coin, 30, {display: "none", ease:Expo.easeIn})
+    clockTween7= TweenMax.to(clock, 30, {display: "none", ease:Expo.easeIn})
     tween1=new TimelineMax()
     tween2=new TimelineMax()
     tween3=new TimelineMax()
     tween4=new TimelineMax()
     tween5=new TimelineMax()
     tween6= new TimelineMax()
+    tween7= new TimelineMax()
 
     tween1.insert(moonTween1,0)
     tween1.insert(sunTween1,0)
@@ -108,7 +115,9 @@ require
     tween6.insert(coinTween6,0)
     tween6.insert(earthTween6,0)
     tween6.insert(dollarTween6,0)
-
+    tween7.insert(earthTween7,0)
+    tween7.insert(coinTween7,0)
+    tween7.insert(clockTween7,0)
     scene1.setTween(tween1)
     scene1.addIndicators()
     scene1.addTo(controller)
@@ -127,3 +136,6 @@ require
     scene6.setTween(tween6)
     scene6.addIndicators()
     scene6.addTo(controller)
+    scene7.setTween(tween7)
+    scene7.addIndicators()
+    scene7.addTo(controller)

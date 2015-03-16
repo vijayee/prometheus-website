@@ -69,6 +69,11 @@ $cantoloupe: #ffb56b;
   font-weight: bold;
   padding: 5px;
 }
+.ui.menu:not(.vertical) .item.right, .ui.menu:not(.vertical) .menu.right{
+  //float: none;
+  //text-align:right;
+  z-index:2;
+}
 .ui.header h1.logo{
   font-size: 3em;
 }
@@ -504,7 +509,7 @@ i.icon.brazier{
     border-bottom: none;
     position: fixed;
     width: 100%;
-    height: 155px;
+    height: 20.1%;
     z-index:1;
 
   }
@@ -705,10 +710,12 @@ $circle-width: 800px;
 }
 
 .dollar{
-  width: 2480px;
-  height:668px;
+  width: 100%;
+  height: 67.13%;
   background-image:url(../images/sparkmark.svg);
   background-color: map-get($light-colors, "graham");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   font-family:OneDance;
   top: 128px;
   z-index: 1;
@@ -719,7 +726,7 @@ $circle-width: 800px;
   font-family: OneDance;
   color: map-get($dark-colors, "grape");
   font-size: 40px;
-  position:relative;
+  position:absolute;
 
 }
 
@@ -729,5 +736,5 @@ $circle-width: 800px;
 }
 .right{
   top: 76px;
-  right: 300px;
+  right: 580px;
 }
