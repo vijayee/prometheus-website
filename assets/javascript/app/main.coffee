@@ -4,6 +4,8 @@ require
       exports:'$'
     dropdown:
       deps:['jquery']
+    pathjs:
+      exports: 'Path'
   paths:
     jquery: '../vendor/jquery/jquery-2.1.1.min'
     dropdown:'../vendor/semantic/dropdown'
@@ -13,37 +15,42 @@ require
     TimelineMax: '../vendor/scrollmagic/lib/greensock/TimelineMax.min'
     TweenLite: '../vendor/scrollmagic/lib/greensock/TweenLite.min'
     Indicators: '../vendor/scrollmagic/plugins/debug.addIndicators'
-  ['jquery', 'ScrollMagic', 'GSAP','Indicators']
+    pathjs: '../vendor/pathjs/path'
+  ['jquery', 'ScrollMagic', 'pathjs', 'GSAP','Indicators']
   ($,ScrollMagic)->
-    toggleContact=(e) ->
-      container= $($(e.currentTarget).data("container"))
-      color= $(e.currentTarget).data("color")
-      if not container.hasClass("expanded")
-        expanded= $(".expanded")
-        if expanded.length > 0
-          closelink= expanded.find("a.close")
-          expanded.removeClass("expanded")
-          $("#Navigation").removeClass(closelink.data("color"))
-          $("#Navigation").addClass("pomegranate")
+    createRouteHandler= (name)->
+      ->
+        container= $($('#' + name).data("container"))
+        color= $('#' + name).data("color")
+        if not container.hasClass("expanded")
+          expanded= $(".expanded")
+          if expanded.length > 0
+            closelink= expanded.find("a.close")
+            expanded.removeClass("expanded")
+            $("#Navigation").removeClass(closelink.data("color"))
+            $("#Navigation").addClass("pomegranate")
         container.addClass("expanded")
         $("#Navigation").removeClass("pomegranate")
         $("#Navigation").addClass(color)
-      else
+
+    createExitHandler= (name)->
+      ->
+        container= $($('#' + name).data("container"))
+        color= $('#' + name).data("color")
         container.removeClass("expanded")
         $("#Navigation").removeClass(color)
         $("#Navigation").addClass("pomegranate")
 
-    $('#ContactLink').on 'click', toggleContact
-    $('#CloseContact').on 'click', toggleContact
 
-    $('#AboutLink').on 'click', toggleContact
-    $('#CloseAbout').on 'click', toggleContact
+    createRoute= (name)->
+      Path.map('#/' + name).to createRouteHandler(name)
+      .exit createExitHandler(name)
 
-    $('#BlogLink').on 'click', toggleContact
-    $('#CloseBlog').on 'click', toggleContact
+    $('.menu .item').each ->
+      name= $(this)[0].id
+      createRoute(name) if name !=""
 
-    $('#FAQLink').on 'click', toggleContact
-    $('#CloseFAQ').on 'click', toggleContact
+    Path.listen()
 
     controller = new ScrollMagic.Controller()
     scene1 = new ScrollMagic.Scene
