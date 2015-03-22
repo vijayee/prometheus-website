@@ -1,5 +1,5 @@
 {
-  "name": "Prometheus Website",
+  "name": "Prometheus_Website",
   "version": "0.0.1",
   "devDependencies": {
     "grunt-coffee": "0.0.6",
@@ -10,5 +10,8 @@
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-requirejs": "^0.4.2"
+  },
+  "dependencies": {
+    "ghost": "^0.5.10"
   }
 }

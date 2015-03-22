@@ -32,6 +32,7 @@ require
         container.addClass("expanded")
         $("#Navigation").removeClass("pomegranate")
         $("#Navigation").addClass(color)
+        $("body").css("overflow","hidden")
 
     createExitHandler= (name)->
       ->
@@ -40,6 +41,7 @@ require
         container.removeClass("expanded")
         $("#Navigation").removeClass(color)
         $("#Navigation").addClass("pomegranate")
+        $("body").css("overflow","scroll")
 
 
     createRoute= (name)->
@@ -49,7 +51,10 @@ require
     $('.menu .item').each ->
       name= $(this)[0].id
       createRoute(name) if name !=""
-
+      if name=="Blog"
+        $(this).click ->
+          $('#GhostBlog').attr('src','http://localhost:2368')
+    $('#GhostBlog').attr('src','http://localhost:2368')
     Path.listen()
 
     controller = new ScrollMagic.Controller()
