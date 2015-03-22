@@ -10,24 +10,24 @@
         <script src="javascript/vendor/requirejs/require.js" data-main="javascript/app/main.js" ></script>
     </head>
     <body>
-    <div id="Navigation" class="ui pomegranate inverted menu">
-
-        <a class="logo item" href="#"> <i class="brazier icon"></i>Prometheus</a>
-        <a id="About" href="#/About" class="item" data-container="#AboutContainer" data-color="pomegranate">
-            <i class="home icon"></i> About Us
+    <div id="Navigation" class="ui eclipse inverted menu">
+        <a id="AboutLink" class="right item" data-container="#AboutContainer" data-color="eclipse">
+            <i class="home icon"></i> ABOUT US
         </a>
-        <a id="Contact" href="#/Contact" class="item" data-container="#ContactContainer" data-color="steel">
-            <i class="mail icon"></i> Contact Us
+        <a id="ContactLink" class="right item" data-container="#ContactContainer" data-color="eclipse">
+            <i class="mail icon"></i> CONTACT US
         </a>
-        <a id="Blog" href="#/Blog" class="item" data-container="#BlogContainer" data-color="salmon">
-            <i class="book icon"></i> Blog
+        <a id="BlogLink" class="right item" data-container="#BlogContainer" data-color="eclipse">
+            <i class="book icon"></i> BLOG
         </a>
-        <a id="FAQ" href="#/FAQ" class="item" data-container="#FAQContainer" data-color="graham">
+        <a id="FAQLink"  class="right item" data-container="#FAQContainer" data-color="eclipse">
             <i class="question icon"></i> FAQ
         </a>
+        <a class="logo item"><img src="../images/prometheus-bluelogo.jpg" alt="Prometheus"></a>
     </div>
     <div id="ContactContainer" class="contact-container">
-        <a id="CloseContact" href="#" class="close" data-container="#ContactContainer" data-color="steel"> <i class="close circular huge inverted icon steel"></i></a>
+        <div class="top-billboard steel"><h1 class="logo"></h1></div>
+        <a id="CloseContact" class="close" data-container="#ContactContainer" data-color="steel"> <i class="close circular huge inverted icon steel"></i></a>
         <div class="ui two column centered grid">
             <div class="column"></div>
             <div class="four column centered row">
@@ -44,7 +44,8 @@
         </div>
     </div>
     <div id="AboutContainer" class="about-container" >
-        <a id="CloseAbout" href="#" class="close" data-container="#AboutContainer" data-color="pomegranate"> <i class="close circular huge inverted icon pomegranate"></i></a>
+        <div class="top-billboard steel"><h1 class="logo"></h1></div>
+        <a id="CloseAbout" class="close" data-container="#AboutContainer" data-color="eclipse"> <i class="close circular huge inverted icon eclipse"></i></a>
         <div class="ui two column centered grid">
             <div class="column"></div>
             <div class="four column centered row">
@@ -61,13 +62,17 @@
         </div>
     </div>
     <div id="BlogContainer" class="blog-container">
-        <a id="CloseBlog" href="#" class="close" data-container="#BlogContainer" data-color="salmon"> <i class="close circular huge inverted icon steel"></i></a>
+        <div class="top-billboard steel"><h1 class="logo"></h1></div>
+        <a id="CloseBlog" class="close" data-container="#BlogContainer" data-color="steel"> <i class="close circular huge inverted icon steel"></i></a>
         <iframe  id="GhostBlog" seamless></iframe>
     </div>
     <div id="FAQContainer" class="faq-container">
-        <a id="CloseFAQ" href="#" class="close" data-container="#FAQContainer" data-color="graham"> <i class="close circular huge inverted icon steel"></i></a>
+        <div class="top-billboard steel"><h1 class="logo"></h1></div>
+        </div>
+        <a id="CloseFAQ" class="close" data-container="#FAQContainer" data-color="graham"> <i class="close circular huge inverted icon steel"></i></a>
         <div class="ui two column centered grid">
             <div class="column"></div>
+            <h1 class="logo"></h1>
             <div class="four column centered row">
                 <div class="column"> Holy grail beta deployment responsive web design founders facebook infrastructure iPad. Sales android stealth branding user experience social media hackathon customer ownership founders crowdsource.</div>
                 <div class="column">Ecosystem success freemium user experience social proof launch party. Backing funding freemium ecosystem. Accelerator channels return on investment twitter seed round client scrum project freemium investor iPad crowdsource handshake. Social proof non-disclosure agreement research & development www.discoverartisans.com iPad burn rate</div>
@@ -82,47 +87,39 @@
         </div>
     </div>
     <div class="container">
-        <div class="top-billboard pomegranate">
-            <h1 class="logo"><i class="icon open-spark"></i>Prometheus<i class="icon close-spark "></i></h1>
+        <div class="top-billboard steel"><h1 class="logo"></h1></div>
         </div>
-        <div id="earth" class="content-earth papaya-background">
+        <div id="earth" class="content-earth steel-background">
             <p>
-                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor branding www.discoverartisans.com direct mailing iteration ownership ramen advisor facebook. Series A financing startup partnership equity holy grail user experience social proof first mover advantage prototype direct mailing iPad analytics non-disclosure agreement. Ecosystem burn rate client stealth. Gamification marketing pivot traction. Niche market beta validation innovator conversion non-disclosure agreement interaction design incubator handshake marketing mass market creative buyer learning curve. Churn rate success iteration hackathon equity focus supply chain validation entrepreneur www.discoverartisans.com. Churn rate monetization agile development innovator buzz network effects iteration early adopters series A financing seed round interaction design gamification. Marketing metrics A/B testing paradigm shift venture ownership value proposition.
+                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor branding www.discoverartisans.com direct mailing iteration ownership ramen advisor facebook. Series A financing startup partnership equity holy grail user experience social proof first mover advantage prototype direct mailing iPad analytics non-disclosure agreement. Ecosystem burn rate client stealth. Gamification marketing pivot traction. Niche market beta validation innovator conversion non-disclosure agreement interaction design incubator handshake marketing mass market creative buyer learning curve. Churn rate success iteration hackathon
 
-                 Virality research & development return on investment crowdsource twitter creative gen-z niche market. Handshake investor prototype iPad pitch value proposition alpha angel investor business-to-business equity. Infographic channels rockstar. Vesting period startup android growth hacking social media market branding. Scrum project holy grail ownership virality seed round gen-z strategy pivot research & development series A financing bandwidth iPad long tail facebook. Android success supply chain monetization first mover advantage launch party iPad validation business plan. Infrastructure burn rate first mover advantage handshake influencer hypotheses partnership user experience interaction design www.discoverartisans.com early adopters buzz market alpha. Churn rate beta infrastructure strategy long tail startup freemium alpha ramen. User experience freemium iteration niche market business-to-business gamification buzz learning curve backing virality crowdsource.
             </p>
         </div>
         <div id="moon" class="content-moon grey-background">
             <p>
-                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor branding www.discoverartisans.com
-
+                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor
 
             </p>
         </div>
         <div id="sun" class="content-sun mandarin-background">
             <p>
-                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor branding www.discoverartisans.com direct mailing iteration ownership ramen advisor facebook. Series A financing startup partnership equity holy grail user experience social proof first mover advantage prototype direct mailing iPad analytics non-disclosure agreement. Ecosystem burn rate client stealth. Gamification marketing pivot traction. Niche market beta validation innovator conversion non-disclosure agreement interaction design incubator handshake marketing mass market creative buyer learning curve. Churn rate success iteration hackathon equity focus supply chain validation entrepreneur www.discoverartisans.com. Churn rate monetization agile development innovator buzz network effects iteration early adopters series A financing seed round interaction design gamification. Marketing metrics A/B testing paradigm shift venture ownership value proposition.
-                Branding rockstar prototype growth hacking innovator seed round hypotheses metrics.
+                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor branding
+
             </p>
         </div>
         <div id="coin" class="content-coin">
             <p>
-                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor branding www.discoverartisans.com
-
+                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor
 
             </p>
         </div>
         <div id="clock" class="content-clock">
             <p>
-                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor branding www.discoverartisans.com
-
+                Gamification ownership infographic backing business plan non-disclosure agreement stock direct mailing customer android beta accelerator. Ramen agile development partnership www.discoverartisans.com. Success metrics rockstar investor
 
             </p>
         </div>
-        <div class="dollar">
-
-        </div>
-        <div class="bottom-billboard salmon">
+        <div class="bottom-billboard eclipse">
         </div>
     </div>
     </body>
