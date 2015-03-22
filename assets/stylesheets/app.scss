@@ -702,7 +702,7 @@ $circle-width: 800px;
 .close{
   position:fixed;
   bottom: 0px;
-  right: 0px;
+  right: 15px;
 }
 @mixin close-icon-colors($name, $color, $text, $highlight) {
   i.inverted.bordered.icon.#{$name} , i.inverted.circular.icon.#{$name}  {
