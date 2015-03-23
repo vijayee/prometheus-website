@@ -615,7 +615,7 @@ $circle-width: 800px;
   height: $circle-width;
   border-radius: 50%;
   background-image:url(../images/4.jpg);
-  background-color: map-get($dark-colors, "pomegranate");
+  background-color: map-get($dark-colors, "eclipse");
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .15);
@@ -670,7 +670,7 @@ $circle-width: 800px;
   width:0%;
   height:0%;
   overflow: hidden;
-  background-color: map-get($dark-colors, "pomegranate");
+  background-color: map-get($dark-colors, "eclipse");
   color: map-get($light-colors, "papaya");
   -moz-transition: height .5s; /* Firefox 4 */
   -webkit-transition: height .5s; /* Safari and Chrome */
@@ -692,7 +692,7 @@ $circle-width: 800px;
   height:0%;
   overflow: hidden;
   background-color: map-get($light-colors, "graham");
-  color: map-get($dark-colors, "pomegranate");
+  color: map-get($dark-colors, "eclipse");
   -moz-transition: height .5s; /* Firefox 4 */
   -webkit-transition: height .5s; /* Safari and Chrome */
   -o-transition: height .5s; /* Opera */
@@ -726,5 +726,11 @@ $circle-width: 800px;
 }
 @each $color in map-keys($light-colors) {
   @include close-icon-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
-
+}
+#GhostBlog {
+ height: 100%;
+ width: 100%;
+}
+iframe{
+ border: none;
 }

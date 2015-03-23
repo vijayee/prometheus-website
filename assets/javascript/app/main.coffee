@@ -28,9 +28,9 @@ require
             closelink= expanded.find("a.close")
             expanded.removeClass("expanded")
             $("#Navigation").removeClass(closelink.data("color"))
-            $("#Navigation").addClass("pomegranate")
+            $("#Navigation").addClass("eclipse")
         container.addClass("expanded")
-        $("#Navigation").removeClass("pomegranate")
+        $("#Navigation").removeClass("eclipse")
         $("#Navigation").addClass(color)
         $("body").css("overflow","hidden")
 
@@ -40,7 +40,7 @@ require
         color= $('#' + name).data("color")
         container.removeClass("expanded")
         $("#Navigation").removeClass(color)
-        $("#Navigation").addClass("pomegranate")
+        $("#Navigation").addClass("eclipse")
         $("body").css("overflow","scroll")
 
 
