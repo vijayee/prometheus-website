@@ -15,7 +15,7 @@ $dark-colors:(
   "water":#6699cc,
   "pomegranate": #b24a4a,
   "jade" : #6cc4bd,
-  "grape": #916f6f
+  "eclipse" : #121411,
 );
 $light-colors:(
   "apricot": #fc9e56,
@@ -26,7 +26,8 @@ $light-colors:(
   "graham": #f4d8c0,
   "mandarin": #ffc290,
   "tangarine":#ffb380,
-  "steel": #e1eaf1
+  "steel": #e1eaf1,
+  "ancient": #9b967d
 );
 /*colors*/
 $chocolate: #550000;
@@ -41,6 +42,8 @@ $salmon: #e67c6c;
 $papaya:#ffebd8;
 $water:#6699cc;
 $cantoloupe: #ffb56b;
+$eclipse: #121411;
+$ancient: #9b967d;
 /* functions */
 
 /*Fonts*/
@@ -50,45 +53,23 @@ $cantoloupe: #ffb56b;
 }
 
 @font-face {
-  font-Family: OneDance;
-  src: url(../fonts/One_dance.ttf);
-}
-
-@font-face {
   font-Family: Comfortaa;
   src: url(../fonts/Comfortaa-Regular.ttf);
 }
-
 .ui.header{
   font-family: "Quicksand";
 }
  .logo, .ui.item.logo{
   font-family: "Elephont";
 }
- #Navigation{
-   text-align: right;
-   height: 41px;
- }
-
 .ui.menu .item.logo{
- font-size: 2.2rem;
- font-weight: bold;
- padding: 5px;
- float:left;
- position:absolute;
- top: 1px;
- left: 1px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  padding: 5px;
 }
-/*
-.ui.menu:not(.vertical) .item.right, .ui.menu:not(.vertical) .menu.right{
- //float: none;
- //text-align:right;
- //z-index:2;
-}*/
 .ui.header h1.logo{
- font-size: 3em;
+  font-size: 3em;
 }
-
 h1{
   font-size: 4rem;
   margin: 4px;
@@ -105,10 +86,9 @@ h1{
   @include header-colors("#{$color}", map-get($light-colors, $color));
 }
 body{
-  font-family: "Quicksand";
-  min-width: 818px;
-  min-height: 800px;
-  height:3600px;
+  font-family: "Courier";
+  height:5000px;
+  background-image: url(../images/bluebricks.jpg);
 }
 
 @font-face {
@@ -119,6 +99,11 @@ body{
 @font-face {
   font-Family: Quicksand;
   src: url(../fonts/Quicksand-Regular.otf);
+}
+
+@font-face {
+font-family: "Asfalto";
+src: url(../fonts/Asfalto.ttf);
 }
 
 /* Input styles*/
@@ -516,6 +501,7 @@ i.icon.brazier{
     position: relative;
     overflow: hidden;
     background-color: $color;
+    padding: 50px 0px;
     bottom:0px;
     color:  $text;
     margin-bottom: 0px;
@@ -558,11 +544,13 @@ $circle-width: 800px;
   width: $circle-width;
   height: $circle-width;
   border-radius: 50%;
-  background-image:url(../images/earth-512px.svg);
+  background-image:url(../images/1.jpg);
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .15);
   position: fixed;
+  color: #89cff0;
+  font-size: 110%;
   z-index:3;
  }
 .content-moon{
@@ -573,18 +561,32 @@ $circle-width: 800px;
   width: $circle-width * .40;
   height: $circle-width * .40;
   border-radius: 50%;
-  background-image:url(../images/moon-512px.svg);
+  background-image:url(../images/2.jpg);
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .06);
   position: fixed;
+  color: #89cff0;
+  font-size: 110%;
   z-index:5;
 }
-
-@media screen and (max-width: 995px){
-  .content-moon {
-    z-index: 2;
-  }
+.max-moon{
+  top:120px;
+  left:50%;
+  transform: translate(-50%, 0);
+  margin: auto auto;
+  text-align: center;
+  width: $circle-width;
+  height: $circle-width;
+  border-radius: 50%;
+  background-image:url(../images/2.jpg);
+  background-size: cover;
+  overflow: hidden;
+  padding:($circle-width * .15);
+  position: fixed;
+  color: #89cff0;
+  font-size: 110%;
+  z-index:5;
 }
 .content-sun{
   top:300px;
@@ -594,12 +596,13 @@ $circle-width: 800px;
   width: $circle-width * .80;
   height: $circle-width * .80;
   border-radius: 50%;
-  background-image:url(../images/sun2-512px.svg);
+  background-image:url(../images/3.jpg);
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .12);
   position: fixed;
-
+  color: #89cff0;
+  font-size: 110%;
   z-index:2;
 }
 .content-coin{
@@ -611,13 +614,15 @@ $circle-width: 800px;
   width: $circle-width;
   height: $circle-width;
   border-radius: 50%;
-  background-image:url(../images/coin-512px.svg);
-  background-color: map-get($dark-colors, "pomegranate");
+  background-image:url(../images/4.jpg);
+  background-color: map-get($dark-colors, "eclipse");
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .15);
   position: fixed;
   display:none;
+  color: #89cff0;
+  font-size: 110%;
   z-index:9;
 }
 
@@ -630,13 +635,15 @@ $circle-width: 800px;
   width: $circle-width;
   height: $circle-width;
   border-radius: 50%;
-  background-image:url(../images/clock-512px.svg);
+  background-image:url(../images/5.jpg);
   background-color: #c1a2a2;
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .15);
   position: fixed;
   display:none;
+  color: #89cff0;
+  font-size: 110%;
   z-index:9;
 }
 .shadow{
@@ -663,7 +670,7 @@ $circle-width: 800px;
   width:0%;
   height:0%;
   overflow: hidden;
-  background-color: map-get($dark-colors, "pomegranate");
+  background-color: map-get($dark-colors, "eclipse");
   color: map-get($light-colors, "papaya");
   -moz-transition: height .5s; /* Firefox 4 */
   -webkit-transition: height .5s; /* Safari and Chrome */
@@ -685,7 +692,7 @@ $circle-width: 800px;
   height:0%;
   overflow: hidden;
   background-color: map-get($light-colors, "graham");
-  color: map-get($dark-colors, "pomegranate");
+  color: map-get($dark-colors, "eclipse");
   -moz-transition: height .5s; /* Firefox 4 */
   -webkit-transition: height .5s; /* Safari and Chrome */
   -o-transition: height .5s; /* Opera */
@@ -702,7 +709,7 @@ $circle-width: 800px;
 .close{
   position:fixed;
   bottom: 0px;
-  right: 15px;
+  right: 0px;
 }
 @mixin close-icon-colors($name, $color, $text, $highlight) {
   i.inverted.bordered.icon.#{$name} , i.inverted.circular.icon.#{$name}  {
@@ -719,43 +726,11 @@ $circle-width: 800px;
 }
 @each $color in map-keys($light-colors) {
   @include close-icon-colors("#{$color}", map-get($light-colors, $color), map-get($dark-colors, "raspberry"), map-get($dark-colors, "merlot"));
-
-}
-
-.dollar{
-  width: 100%;
-  height: 67.13%;
-  background-image:url(../images/sparkmark.svg);
-  background-color: map-get($light-colors, "graham");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  font-family:OneDance;
-  top: 128px;
-  z-index: 1;
-  position: fixed;
-  opacity: 0;
-}
-.dollar-marquee {
-  font-family: OneDance;
-  color: map-get($dark-colors, "grape");
-  font-size: 40px;
-  position:absolute;
-
-}
-
-.left {
-  top: 76px;
-  left: 300px;
-}
-.right{
-  top: 76px;
-  right: 580px;
 }
 #GhostBlog {
-  height: 100%;
-  width: 100%;
+ height: 100%;
+ width: 100%;
 }
 iframe{
-
-  border: none;
+ border: none;
 }
