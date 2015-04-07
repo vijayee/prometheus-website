@@ -113,7 +113,7 @@ body{
 
 @font-face {
   font-Family: Spark;
-  src: url(../fonts/spark4.otf);
+  src: url(../fonts/spark7.otf);
 }
 
 @font-face {
@@ -389,6 +389,12 @@ body{
 }
 .ui.menu .logo.item>i.icon{
   opacity:1;
+}
+i.icon.flame:before {
+  font-family: 'Spark';
+  font-size: 1.12em;
+  margin: 0 0 0 0;
+  content: "\46";
 }
 i.icon.brazier:before {
   font-family: 'Spark';
