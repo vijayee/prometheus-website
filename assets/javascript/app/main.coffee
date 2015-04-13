@@ -81,7 +81,7 @@ require
       duration: 400
     scene7 = new ScrollMagic.Scene
        offset: 2300
-       duration: 10
+       duration: 400
     moon=$('#moon')
     sun=$('#sun')
     earth=$('#earth')
