@@ -77,10 +77,10 @@ require
       offset: 1800
       duration: 400
     scene6 = new ScrollMagic.Scene
-      offset: 2200
+      offset: 2600
       duration: 400
     scene7 = new ScrollMagic.Scene
-       offset: 2300
+       offset: 2700
        duration: 400
     moon=$('#moon')
     sun=$('#sun')

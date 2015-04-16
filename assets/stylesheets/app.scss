@@ -108,7 +108,7 @@ body{
   font-family: "Quicksand";
   min-width: 818px;
   min-height: 800px;
-  height:4000px;
+  height:4100px;
 }
 
 @font-face {
@@ -623,6 +623,7 @@ $circle-width: 800px;
   border-radius: 50%;
   background-image:url(../images/coin-512px.svg);
   background-color: map-get($dark-colors, "pomegranate");
+  color: map-get($light-colors, "papaya");
   background-size: cover;
   overflow: hidden;
   padding:($circle-width * .15);
