@@ -675,6 +675,9 @@ $circle-width: 800px;
   width:0%;
   height:0%;
   overflow: hidden;
+  background-image: url(../images/starscape.svg);
+  background-position: 100% 100%;
+  background-size: 100% 100%;
   background-color: map-get($dark-colors, "pomegranate");
   color: map-get($light-colors, "papaya");
   -moz-transition: height .5s; /* Firefox 4 */
@@ -696,6 +699,9 @@ $circle-width: 800px;
   width:0%;
   height:0%;
   overflow: hidden;
+  background-image: url(../images/torchlight.svg);
+  background-position: 100% 100%;
+  background-size: 100% 100%;
   background-color: map-get($light-colors, "graham");
   color: map-get($dark-colors, "pomegranate");
   -moz-transition: height .5s; /* Firefox 4 */
@@ -775,4 +781,8 @@ $circle-width: 800px;
 iframe{
 
   border: none;
+}
+.concept-icon{
+  height: 200px;
+  width: auto;
 }
