@@ -666,6 +666,9 @@ $circle-width: 800px;
   width:0%;
   height:0%;
   overflow: hidden;
+  background-image: url(../images/bank.svg);
+  background-position: 100% 100%;
+  background-size: 100% 100%;
   background-color:map-get($light-colors, "steel");
   -moz-transition: height .5s; /* Firefox 4 */
   -webkit-transition: height .5s; /* Safari and Chrome */
