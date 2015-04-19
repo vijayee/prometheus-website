@@ -716,7 +716,28 @@ $circle-width: 800px;
   -webkit-transition: height .5s; /* Safari and Chrome */
   -o-transition: height .5s; /* Opera */
 }
-.expanded, .contact-container.expanded{
+@-moz-document url-prefix() {
+  .contact-container{
+    background-image: url(../images/bankFF.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 110% auto;
+  }
+  .about-container{
+    background-image: url(../images/starscapeFF.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130% auto;
+  }
+  .faq-container{
+    background-image: url(../images/torchlightFF.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 116% auto;
+  }
+}
+
+  .expanded, .contact-container.expanded{
   width: 100%;
   height: 100%;
   margin-top: 41px;
