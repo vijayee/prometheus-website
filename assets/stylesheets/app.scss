@@ -70,6 +70,11 @@ $cantoloupe: #ffb56b;
    height: 41px;
  }
 
+@media screen and (max-width: 720px){
+  #Navigation a.item{
+    display:none;
+  }
+}
 .ui.menu .item.logo{
  font-size: 2.2rem;
  font-weight: bold;
