@@ -6,8 +6,12 @@ require
       deps:['jquery']
     ScrollSpeed:
       deps:['jquery']
+    breakpoints:
+      deps:['jquery']
     pathjs:
       exports: 'Path'
+    semantic:
+      deps:['jquery']
   paths:
     jquery: '../vendor/jquery/jquery-2.1.1.min'
     dropdown:'../vendor/semantic/dropdown'
@@ -19,7 +23,9 @@ require
     Indicators: '../vendor/scrollmagic/plugins/debug.addIndicators'
     pathjs: '../vendor/pathjs/path'
     ScrollSpeed: '../vendor/jQuery.scrollSpeed-master/jQuery.scrollSpeed'
-  ['jquery', 'ScrollMagic', 'ScrollSpeed', 'pathjs', 'GSAP','Indicators']
+    breakpoints: '../vendor/breakpoints/breakpoints'
+    semantic:'../vendor/semantic/accordion'
+  ['jquery', 'ScrollMagic', 'breakpoints','ScrollSpeed', 'pathjs', 'GSAP','Indicators','semantic']
   ($,ScrollMagic)->
     createRouteHandler= (name)->
       ->
@@ -50,7 +56,21 @@ require
     createRoute= (name)->
       Path.map('#/' + name).to createRouteHandler(name)
       .exit createExitHandler(name)
-
+    $(window).setBreakpoints
+      distinct: true
+      breakpoints:[720]
+    $(window).bind 'enterBreakpoint720', ->
+      $('.responsive').show()
+      $('#Hamburger').hide()
+      $('#Navigation').append($('.responsive').detach())
+    $(window).bind 'exitBreakpoint720', ->
+      $('.responsive').hide()
+      $('#Hamburger').show()
+      $('#ResponsiveNavigation').append($('.responsive').detach())
+    $('#Hamburger').on "mouseover", ->
+      $('.responsive').show()
+    $('#ResponsiveNavigation').on "mouseleave", ->
+      $('.responsive').hide()
     $('.menu .item').each ->
       name= $(this)[0].id
       createRoute(name) if name !=""
@@ -59,6 +79,7 @@ require
           $('#GhostBlog').attr('src','http://localhost:2368')
     $('#GhostBlog').attr('src','http://localhost:2368')
     Path.listen()
+    $('.ui.accordion').accordion()
     isFirefox = !!(window.mozInnerScreenX)
     controller = new ScrollMagic.Controller()
     scene1 = new ScrollMagic.Scene
@@ -91,6 +112,7 @@ require
 
     moonTween1 = TweenMax.to(moon, 10, {width: "800px", height:"800px", top: "120px", left:"50%", padding:"120px", zIndex:50, transform:"translate(-400px, 0)",  ease:Expo.easeIn})
     if isFirefox
+      console.log("happened")
       sunTween1= TweenMax.to(sun, 10, {width: "250px", height:"250px", top: "200px", right:"50%", padding:"30px", left: "0", transform:"translate(160px, 0)",  ease:Expo.easeIn})
     else
       sunTween1= TweenMax.to(sun, 10, {width: "250px", height:"250px", top: "200px", right:"50%", padding:"30px", transform:"translate(160px, 0)",  ease:Expo.easeIn})

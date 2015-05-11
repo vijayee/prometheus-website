@@ -821,3 +821,10 @@ iframe{
 .column p{
   font-size: 1.2em;
 }
+.ui.styled.accordion, .ui.styled.accordion .accordion{
+  background: none;
+  box-shadow: none;
+}
+.ui.accordion .title:not(.ui){
+  font-family: Quicksand;
+}
