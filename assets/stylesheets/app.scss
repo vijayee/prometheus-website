@@ -828,3 +828,9 @@ iframe{
 .ui.accordion .title:not(.ui){
   font-family: Quicksand;
 }
+.ui.segment.contact {
+  min-width: 300px;
+}
+i.icon.reddit:before{
+  content:"\f1a1"
+}
