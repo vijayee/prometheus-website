@@ -109,12 +109,21 @@ require
     scene5 = new ScrollMagic.Scene
       offset: 1800
       duration: 400
+    scene5_6 = new ScrollMagic.Scene
+      offset: 1430
+      duration: 400
     scene6 = new ScrollMagic.Scene
       offset: 2600
+      duration: 400
+    scene6_7 = new ScrollMagic.Scene
+      offset: 1830
       duration: 400
     scene7 = new ScrollMagic.Scene
        offset: 2700
        duration: 400
+    scene7_end = new ScrollMagic.Scene
+      offset: 2230
+      duration: 400
 
     moon=$('#moon')
     moonBlurb=moon.find(".blurb")
@@ -123,8 +132,10 @@ require
     earth=$('#earth')
     coin=$('#coin')
     coinBlurb= coin.find(".blurb")
+    coinTitle= coin.find("h2")
     clock=$('#clock')
     clockBlurb= clock.find(".blurb")
+    clockTitle= clock.find("h2")
     dollar=$('.dollar')
     dollarBlurb= dollar.find(".blurb")
     ###
@@ -138,6 +149,8 @@ require
         moon.find(".blurb").css("opacity","0")
       ,2000
     ###
+    earthBlurb= earth.find(".blurb")
+    earthBlurb.css("opacity", "100")
     #Scene1
     moonBlurbTween1_2= TweenMax.to(moonBlurb, 10, {opacity:"100",  ease:Expo.easeIn})
     moonTween1 = TweenMax.to(moon, 10, {width: "800px", height:"800px", top: "120px", left:"50%", padding:"120px", zIndex:50, transform:"translate(-400px, 0)",  ease:Expo.easeIn})
@@ -161,20 +174,27 @@ require
     #Scene4
     moonTween4 = TweenMax.to(moon, 5, {display:"none",  ease:Expo.easeIn})
     sunTween4= TweenMax.to(sun, 5, {display: "none", ease:Expo.easeIn})
-    earthTween4= TweenMax.to(earth, 30, {display: "none", ease:Expo.easeIn})
+    earthTween4= TweenMax.to(earth, 5, {display:"none",  ease:Expo.easeIn})
     clockTween4= TweenMax.to(clock, 30, {display: "block", ease:Expo.easeIn})
-    clockBlurbTween4_5= TweenMax.to(clockBlurb, 10, {opacity:"0",  ease:Expo.easeIn})
+    clockBlurbTween4_5= TweenMax.to(clockBlurb, 10, {opacity:"100",  ease:Expo.easeIn})
 
     #Scene 5
     clockTween5= TweenMax.to(clock, 30, {width: "60px", height:"60px", top: "300px", left:"10%", zIndex:20, transform:"translate(-20px, 0)",  ease:Expo.easeIn})
     coinTween5= TweenMax.to(coin, 10, {display: "block", zIndex:30, ease:Expo.easeIn})
+    clockBlurbTween5_6= TweenMax.to(clockBlurb, 10, {opacity:"0",  ease:Expo.easeIn})
+    coinBlurbTween5_6= TweenMax.to(coinBlurb, 10, {opacity:"100",  ease:Expo.easeIn})
 
     earthTween6= TweenMax.to(earth, 30, {display: "block", width: "600px", height:"600px", top:"160px", padding:"90px", ease:Expo.easeIn})
     coinTween6= TweenMax.to(coin, 10, {width: "60px", height:"60px", top: "300px", zIndex:20, left:"80%", transform:"translate(30px, 0)",  ease:Expo.easeIn})
     dollarTween6= TweenMax.to(dollar, 30, {opacity:"100", "block", ease:Expo.easeIn})
+
+    clockTitleTween6_7= TweenMax.to(clockTitle, 10, {opacity:"0",  ease:Expo.easeIn})
     earthTween7= TweenMax.to(earth, 30, {opacity: "0", ease:Expo.easeIn})
     coinTween7= TweenMax.to(coin, 30, {display: "none", ease:Expo.easeIn})
     clockTween7= TweenMax.to(clock, 30, {display: "none", ease:Expo.easeIn})
+
+    coinBlurbTween7_end= TweenMax.to(coinBlurb, 10, {opacity:"0",  ease:Expo.easeIn})
+    coinTitleTween7_end= TweenMax.to(coinTitle, 10, {opacity:"0",  ease:Expo.easeIn})
     tween1=new TimelineMax()
     tween1_2= new TimelineMax()
     tween2=new TimelineMax()
@@ -184,8 +204,11 @@ require
     tween4=new TimelineMax()
     tween4_5= new TimelineMax()
     tween5=new TimelineMax()
+    tween5_6= new TimelineMax()
     tween6= new TimelineMax()
+    tween6_7= new TimelineMax()
     tween7= new TimelineMax()
+    tween7_end= new TimelineMax()
 
     tween1.insert(moonTween1,0)
     tween1.insert(sunTween1,0)
@@ -208,12 +231,20 @@ require
 
     tween5.insert(clockTween5,0)
     tween5.insert(coinTween5,0)
+
+    tween5_6.insert(clockBlurbTween5_6,0)
+    tween5_6.insert(coinBlurbTween5_6,0)
+
     tween6.insert(coinTween6,0)
     tween6.insert(earthTween6,0)
     tween6.insert(dollarTween6,0)
+    tween6_7.insert(clockTitleTween6_7,0)
+
     tween7.insert(earthTween7,0)
     tween7.insert(coinTween7,0)
     tween7.insert(clockTween7,0)
+    tween7_end.insert(coinBlurbTween7_end,0)
+    tween7_end.insert(coinTitleTween7_end,0)
 
     scene1.setTween(tween1)
     scene1.addTo(controller)
@@ -238,8 +269,19 @@ require
 
     scene5.setTween(tween5)
     scene5.addTo(controller)
+
+    scene5_6.setTween(tween5_6)
+    scene5_6.addTo(controller)
+
     scene6.setTween(tween6)
     scene6.addTo(controller)
+
+    scene6_7.setTween(tween6_7)
+    scene6_7.addTo(controller)
+
     scene7.setTween(tween7)
     scene7.addTo(controller)
+
+    scene7_end.setTween(tween7_end)
+    scene7_end.addTo(controller)
     $.scrollSpeed(150, 870)
