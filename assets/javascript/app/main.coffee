@@ -13,7 +13,7 @@ require
     semantic:
       deps:['jquery']
   paths:
-    jquery: '../vendor/jquery/jquery-2.1.1.min'
+    jquery: '../vendor/jquery/jquery-1.11.3.min'
     dropdown:'../vendor/semantic/dropdown'
     ScrollMagic:'../vendor/scrollmagic/ScrollMagic'
     GSAP: '../vendor/scrollmagic/plugins/animation.gsap'
@@ -24,7 +24,7 @@ require
     pathjs: '../vendor/pathjs/path'
     ScrollSpeed: '../vendor/jQuery.scrollSpeed-master/jQuery.scrollSpeed'
     breakpoints: '../vendor/breakpoints/breakpoints'
-    semantic:'../vendor/semantic/accordion'
+    semantic: '../vendor/semantic/semantic.min'
   ['jquery', 'ScrollMagic', 'breakpoints','ScrollSpeed', 'pathjs', 'GSAP','Indicators','semantic']
   ($,ScrollMagic)->
     createRouteHandler= (name)->
@@ -75,11 +75,14 @@ require
       name= $(this)[0].id
       createRoute(name) if name !=""
       if name=="Blog"
-        $(this).click ->
+        $(this).on 'click', ->
           $('#GhostBlog').attr('src','http://localhost:2368')
     $('#GhostBlog').attr('src','http://localhost:2368')
     Path.listen()
     $('.ui.accordion').accordion()
+    $('.subscribe-open').on 'click', (e) ->
+      e.preventDefault()
+      $(".subscribe-form").modal('show')
     isFirefox = !!(window.mozInnerScreenX)
     controller = new ScrollMagic.Controller()
     scene1 = new ScrollMagic.Scene
@@ -308,3 +311,28 @@ require
     scene7_end.setTween(tween7_end)
     scene7_end.addTo(controller)
     $.scrollSpeed(150, 870)
+
+    $('#EmailForm').form
+      fields:
+        FirstName:
+          identifier:'FirstName'
+          rules:[
+            type: 'empty'
+            prompt: 'Please Enter Your First Name'
+          ]
+        LastName:
+          identifier:'LastName'
+          rules:[
+            type: 'empty'
+            prompt: 'Please Enter Your First Name'
+          ]
+        Email:
+          identifier:'Email'
+          rules:[
+            type: 'email'
+            prompt: 'Please Enter Your Email'
+          ]
+      inline: true
+      on: 'blur'
+    $('#SubscribeButton').on 'click', ->
+      $('#EmailForm').submit()

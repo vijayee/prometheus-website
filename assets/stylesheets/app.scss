@@ -129,6 +129,7 @@ body{
 /* Input styles*/
 
 .ui.input.pill input {
+    margin: 10px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
@@ -863,4 +864,26 @@ i.icon.reddit:before{
   -moz-transition: opacity .25s ease-in-out;
   -webkit-transition: opacity .25s ease-in-out;
   */
+}
+
+#SubscribeContainer{
+  display: inline;
+  position: fixed;
+  text-align: center;
+  margin: 0 20px 0 0;
+  top: 50%;
+  right:0;
+  z-index:3000;
+  .subscribe{
+    padding:0;
+    margin: 0;
+  }
+}
+
+.ui.modal>.header{
+  background-color: map-get($dark-colors, "pomegranate");
+  color:  map-get($light-colors, "papaya");
+}
+.ui.modal .actions {
+  background-color: map-get($dark-colors, "salmon");
 }

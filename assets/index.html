@@ -10,6 +10,37 @@
         <script src="javascript/vendor/requirejs/require.js" data-main="javascript/app/main.js" ></script>
     </head>
     <body>
+    <div id="SubscribeContainer">
+        <a class="subscribe-open"><i class="icon big inverted circular teal envelope"></i></a>
+        <h3 class="subscribe">Subscribe</h3>
+        <div class="subscribe-form ui modal">
+            <i class="close icon"></i>
+            <div class="header">
+                Subscribe To Our Mailing List
+            </div>
+            <form id="EmailForm">
+                <div class="content">
+                    <div class="ui input icon graham pill">
+                        <input id="FirstName" type="text" placeholder="First Name">
+                    </div>
+                    <br>
+                    <div class="ui input icon graham pill">
+                        <input id="LastName" type="text" placeholder="Last Name">
+                    </div>
+                    <br>
+                    <div class="ui input icon graham pill">
+                        <input id="Email" type="text" placeholder="Email">
+                        <i class="mail icon"></i>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div id="SubscribeButton" class="ui water pill button">
+                        Subscribe
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div id="Navigation" class="ui pomegranate inverted menu">
 
         <a class="logo item" href="#"> <i class="flame icon"></i>Prometheus</a>
