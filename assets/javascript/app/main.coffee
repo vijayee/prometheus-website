@@ -42,6 +42,7 @@ require
         $("#Navigation").removeClass("pomegranate")
         $("#Navigation").addClass(color)
         $("body").css("overflow","hidden")
+        $('#SubscribeContainer').hide()
 
     createExitHandler= (name)->
       ->
@@ -51,6 +52,7 @@ require
         $("#Navigation").removeClass(color)
         $("#Navigation").addClass("pomegranate")
         $("body").css("overflow","scroll")
+        $('#SubscribeContainer').show()
 
 
     createRoute= (name)->
@@ -77,12 +79,41 @@ require
       if name=="Blog"
         $(this).on 'click', ->
           $('#GhostBlog').attr('src','http://localhost:2368')
+      if name=="MailChimp"
+        $(this).on 'click', ->
+          $('#MailChimpForm').attr('src','http://eepurl.com/buWoej')
+
+    $('a.subscribe-open').on 'click', ->
+      container= $('#MailChimpContainer')
+      color= "pomegranate"
+      if not container.hasClass("expanded")
+        expanded= $(".expanded")
+        if expanded.length > 0
+          closelink= expanded.find("a.close")
+          expanded.removeClass("expanded")
+          $("#Navigation").removeClass(closelink.data("color"))
+          $("#Navigation").addClass("pomegranate")
+      container.addClass("expanded")
+      $("#Navigation").removeClass("pomegranate")
+      $("#Navigation").addClass(color)
+      $("body").css("overflow","hidden")
+      window.location="#/MailChimp"
+      $('#MailChimpForm').attr('src','http://eepurl.com/buWoej')
+    $('#CloseMailChimp').on 'click', ->
+      container= $('#MailChimpContainer')
+      color= "pomegranate"
+      container.removeClass("expanded")
+      $("#Navigation").removeClass(color)
+      $("#Navigation").addClass("pomegranate")
+      $("body").css("overflow","scroll")
+      $('#SubscribeContainer').show()
     $('#GhostBlog').attr('src','http://localhost:2368')
+    $('#MailChimpForm').attr('src','http://eepurl.com/buWoej')
     Path.listen()
     $('.ui.accordion').accordion()
     $('.subscribe-open').on 'click', (e) ->
+      $('#SubscribeContainer').hide()
       e.preventDefault()
-      $(".subscribe-form").modal('show')
     isFirefox = !!(window.mozInnerScreenX)
     controller = new ScrollMagic.Controller()
     scene1 = new ScrollMagic.Scene
@@ -145,17 +176,7 @@ require
     clockTitle= clock.find("h2")
     dollar=$('.dollar')
     dollarBlurb= dollar.find(".blurb")
-    ###
-    scene1.on "start",->
-      moon.find(".blurb").css("opacity","0")
-      sun.find(".blurb").css("opacity","0")
-    scene1.on "end",->
-      moon.find(".blurb").css("opacity","100")
-    scene2.on "start", ->
-      setTimeout ->
-        moon.find(".blurb").css("opacity","0")
-      ,2000
-    ###
+
     earthBlurb= earth.find(".blurb")
     earthBlurb.css("opacity", "100")
     earthIcons= earth.find("ul")
@@ -311,28 +332,10 @@ require
     scene7_end.setTween(tween7_end)
     scene7_end.addTo(controller)
     $.scrollSpeed(150, 870)
+    ###
+    $('#SubscribeButton').off()
+    $('.subscribe-form .close.icon').on 'click', ->
 
-    $('#EmailForm').form
-      fields:
-        FirstName:
-          identifier:'FirstName'
-          rules:[
-            type: 'empty'
-            prompt: 'Please Enter Your First Name'
-          ]
-        LastName:
-          identifier:'LastName'
-          rules:[
-            type: 'empty'
-            prompt: 'Please Enter Your First Name'
-          ]
-        Email:
-          identifier:'Email'
-          rules:[
-            type: 'email'
-            prompt: 'Please Enter Your Email'
-          ]
-      inline: true
-      on: 'blur'
     $('#SubscribeButton').on 'click', ->
-      $('#EmailForm').submit()
+
+    ###

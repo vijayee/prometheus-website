@@ -806,7 +806,7 @@ $circle-width: 800px;
   top: 76px;
   right: 580px;
 }
-#GhostBlog {
+#GhostBlog, #MailChimpForm{
   height: 100%;
   width: 100%;
 }
@@ -878,6 +878,13 @@ i.icon.reddit:before{
     padding:0;
     margin: 0;
   }
+
+  #SubscribeContainer:hover{
+    background-color: blue;
+    .subscribe{
+     background-color: blue;
+    }
+  }
 }
 
 .ui.modal>.header{
@@ -886,4 +893,10 @@ i.icon.reddit:before{
 }
 .ui.modal .actions {
   background-color: map-get($dark-colors, "salmon");
+}
+input:required:invalid{
+  border: 3px red;
+}
+#EmailForm .content{
+  padding: 10px;
 }
