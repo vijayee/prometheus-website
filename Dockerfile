@@ -14,13 +14,22 @@ ENV GOPATH /gopath
 ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
 
 RUN npm install -g grunt-cli
-RUN apt-get install ruby-full
-RUN gem install sass
-RUN go get -d https://github.com/Prometheus-SCN/prometheus-website
-WORKINGDIR $GOROOT/github.com/Prometheus-SCN/prometheus-website
+RUN apt-get install -y apt-utils
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get install -y ruby locales
+ENV DEBIAN_FRONTEND ""
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LANGUAGE en_US:en
+RUN locale
+RUN gem install sass --no-rdoc --no-ri
+RUN git clone https://github.com/Prometheus-SCN/prometheus-website
+WORKDIR prometheus-website
+RUN ls
 RUN npm install
 RUN grunt
-WORKINGDIR $GOROOT/github.com/Prometheus-SCN/prometheus-website/server
+WORKDIR server
 RUN go build
 CMD ./server 8080
 ENTRYPOINT ./server 8080
