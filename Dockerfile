@@ -22,7 +22,8 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LANGUAGE en_US:en
-RUN locale
+RUN export LC_ALL="en_US.UTF-8"
+RUN export LANG="en_US.UTF-8"
 RUN gem install sass --no-rdoc --no-ri
 RUN git clone https://github.com/Prometheus-SCN/prometheus-website
 WORKDIR prometheus-website
