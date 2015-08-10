@@ -58,6 +58,7 @@ require
     createRoute= (name)->
       Path.map('#/' + name).to createRouteHandler(name)
       .exit createExitHandler(name)
+    ###
     $(window).setBreakpoints
       distinct: true
       breakpoints:[720]
@@ -73,12 +74,13 @@ require
       $('.responsive').show()
     $('#ResponsiveNavigation').on "mouseleave", ->
       $('.responsive').hide()
+    ###
     $('.menu .item').each ->
       name= $(this)[0].id
       createRoute(name) if name !=""
       if name=="Blog"
         $(this).on 'click', ->
-          $('#GhostBlog').attr('src','http://localhost:2368')
+          $('#GhostBlog').attr('src','http://blog.prometheus.network')
       if name=="MailChimp"
         $(this).on 'click', ->
           $('#MailChimpForm').attr('src','http://eepurl.com/buWoej')
@@ -107,7 +109,7 @@ require
       $("#Navigation").addClass("pomegranate")
       $("body").css("overflow","scroll")
       $('#SubscribeContainer').show()
-    $('#GhostBlog').attr('src','http://localhost:2368')
+    $('#GhostBlog').attr('src','http://blog.prometheus.network')
     $('#MailChimpForm').attr('src','http://eepurl.com/buWoej')
     Path.listen()
     $('.ui.accordion').accordion()

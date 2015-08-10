@@ -38,3 +38,4 @@ com_crashlytics_export_strings.xml
 npm-debug.log
 server/server.go
 public.zip
+node-modules
