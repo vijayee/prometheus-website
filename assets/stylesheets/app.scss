@@ -573,6 +573,36 @@ i.icon.brazier{
   background-color: map-get($dark-colors, "pomegranate");
 }
 $circle-width: 800px;
+#arrows{
+  top:120px;
+  left:50%;
+  -webkit-transform: translate($circle-width/3, 0);
+  -moz-webkit-transform: translate($circle-width/3, 0);
+  transform: translate($circle-width/3, 0);
+  margin: auto auto;
+  text-align: center;
+  width: $circle-width/3;
+  height: $circle-width;
+  overflow: hidden;
+  position: fixed;
+  z-index:40;
+}
+#arrows .up-arrow{
+  background-image:url(../images/arrow-up-b.svg);
+  background-size: cover;
+  width: $circle-width/8;
+  height: $circle-width/8;
+  position: absolute;
+  top:0px;
+ }
+#arrows .down-arrow{
+  background-image:url(../images/arrow-down-b.svg);
+  background-size: cover;
+  width: $circle-width/8;
+  height: $circle-width/8;
+  position: absolute;
+  bottom:0px;
+}
 .content-earth{
   top:120px;
   left:50%;

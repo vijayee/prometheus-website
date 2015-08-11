@@ -21,11 +21,12 @@ require
     TimelineMax: '../vendor/scrollmagic/lib/greensock/TimelineMax.min'
     TweenLite: '../vendor/scrollmagic/lib/greensock/TweenLite.min'
     Indicators: '../vendor/scrollmagic/plugins/debug.addIndicators'
+    ScrollToPlugin: '../vendor/scrollmagic/plugins/ScrollToPlugin'
     pathjs: '../vendor/pathjs/path'
     ScrollSpeed: '../vendor/jQuery.scrollSpeed-master/jQuery.scrollSpeed'
     breakpoints: '../vendor/breakpoints/breakpoints'
     semantic: '../vendor/semantic/semantic.min'
-  ['jquery', 'ScrollMagic', 'breakpoints','ScrollSpeed', 'pathjs', 'GSAP','Indicators','semantic']
+  ['jquery', 'ScrollMagic', 'breakpoints','ScrollSpeed', 'pathjs', 'GSAP','Indicators','','semantic']
   ($,ScrollMagic)->
     createRouteHandler= (name)->
       ->
@@ -102,7 +103,10 @@ require
       e.preventDefault()
     isFirefox = !!(window.mozInnerScreenX)
     isIOS = /iPad|iPhone|iPod/.test(navigator.platform)
+    if (!window.isMobileOrTablet())
+      $('#arrows').hide()
     controller = new ScrollMagic.Controller()
+    sceneScroller=[]
     scene1 = new ScrollMagic.Scene
       offset: 30
       duration: 400
@@ -145,6 +149,12 @@ require
     scene7_end = new ScrollMagic.Scene
       offset: 2230
       duration: 400
+    sceneScroller.push(scene1)
+    sceneScroller.push(scene2)
+    sceneScroller.push(scene4)
+    sceneScroller.push(scene5)
+    sceneScroller.push(scene6)
+    sceneScroller.push(scene7)
 
     moon=$('#moon')
     moonBlurb=moon.find(".blurb")
@@ -319,6 +329,26 @@ require
 
     scene7_end.setTween(tween7_end)
     scene7_end.addTo(controller)
+    controller.scrollTo((pos)->
+      window.scrollTo(0,pos)
+    )
+    $('.up-arrow').click (e)->
+      for scene in sceneScroller.slice(0).reverse()
+        if scene.scrollOffset() < $(window).scrollTop()
+          #window.scrollTo(0, 0)
+          window.scrollTo(0, scene.scrollOffset())
+          return
+      window.scrollTo(0, 30)
+
+    $('.down-arrow').click (e)->
+      for scene in sceneScroller
+        if scene.scrollOffset() > $(window).scrollTop()
+
+          window.scrollTo(0,scene.scrollOffset())
+          if $(window).scrollTop() == 0
+            continue
+          return
+      window.scrollTo(0, 4700)
 
     if isIOS
       $.scrollSpeed(380, 900)
