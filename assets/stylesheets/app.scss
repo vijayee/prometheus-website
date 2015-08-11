@@ -47,7 +47,10 @@ $cantoloupe: #ffb56b;
 /*Fonts*/
 @font-face {
   font-Family: Elephont;
-  src: url(../fonts/Elephont-Regular.ttf);
+  src: url('../fonts/Elephont-Regular.eot');
+  src: url('../fonts/Elephont-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Elephont-Regular.ttf') format('truetype'),
+  url('../fonts/Elephont-Regular.otf');
 }
 
 @font-face {
@@ -57,7 +60,7 @@ $cantoloupe: #ffb56b;
 
 @font-face {
   font-Family: Comfortaa;
-  src: url(../fonts/Comfortaa-Regular.ttf);
+  src: url(../fonts/Comfortaa-Regular.ttf) format('truetype');
 }
 
 .ui.header{
@@ -120,7 +123,10 @@ body{
 
 @font-face {
   font-Family: Spark;
-  src: url(../fonts/spark7.ttf);
+  src: url('../fonts/spark7.eot');
+  src: url('../fonts/spark7.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/spark7.ttf') format('truetype'),
+  url('../fonts/spark7.otf');
 }
 
 @font-face {
