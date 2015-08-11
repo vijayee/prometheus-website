@@ -58,23 +58,7 @@ require
     createRoute= (name)->
       Path.map('#/' + name).to createRouteHandler(name)
       .exit createExitHandler(name)
-    ###
-    $(window).setBreakpoints
-      distinct: true
-      breakpoints:[720]
-    $(window).bind 'enterBreakpoint720', ->
-      $('.responsive').show()
-      $('#Hamburger').hide()
-      $('#Navigation').append($('.responsive').detach())
-    $(window).bind 'exitBreakpoint720', ->
-      $('.responsive').hide()
-      $('#Hamburger').show()
-      $('#ResponsiveNavigation').append($('.responsive').detach())
-    $('#Hamburger').on "mouseover", ->
-      $('.responsive').show()
-    $('#ResponsiveNavigation').on "mouseleave", ->
-      $('.responsive').hide()
-    ###
+
     $('.menu .item').each ->
       name= $(this)[0].id
       createRoute(name) if name !=""
@@ -117,6 +101,7 @@ require
       $('#SubscribeContainer').hide()
       e.preventDefault()
     isFirefox = !!(window.mozInnerScreenX)
+    isIOS = /iPad|iPhone|iPod/.test(navigator.platform)
     controller = new ScrollMagic.Controller()
     scene1 = new ScrollMagic.Scene
       offset: 30
@@ -225,8 +210,8 @@ require
 
     earthTween6= TweenMax.to(earth, 30, {display: "block", width: "600px", height:"600px", top:"160px", padding:"90px", ease:Expo.easeIn})
     coinTween6= TweenMax.to(coin, 10, {width: "60px", height:"60px", top: "300px", zIndex:20, left:"80%", transform:"translate(30px, 0)",  ease:Expo.easeIn})
-    dollarTween6= TweenMax.to(dollar, 30, {opacity:"100", "block", ease:Expo.easeIn})
-
+    dollarTween6= TweenMax.to(dollar, 30, {opacity:"100", ease:Expo.easeIn})
+    bodyTween6 =TweenMax.to($('body'), 5, {backgroundColor:"#f4d8c0", ease:Expo.easeIn})
     clockTitleTween6_7= TweenMax.to(clockTitle, 10, {opacity:"0",  ease:Expo.easeIn})
     earthTween7= TweenMax.to(earth, 30, {opacity: "0", ease:Expo.easeIn})
     coinTween7= TweenMax.to(coin, 30, {display: "none", ease:Expo.easeIn})
@@ -285,6 +270,7 @@ require
     tween6.insert(coinTween6,0)
     tween6.insert(earthTween6,0)
     tween6.insert(dollarTween6,0)
+    tween6.insert(bodyTween6,0)
     tween6_7.insert(clockTitleTween6_7,0)
 
     tween7.insert(earthTween7,0)
@@ -333,11 +319,9 @@ require
 
     scene7_end.setTween(tween7_end)
     scene7_end.addTo(controller)
-    $.scrollSpeed(150, 870)
-    ###
-    $('#SubscribeButton').off()
-    $('.subscribe-form .close.icon').on 'click', ->
+    if isIOS
+      $.scrollSpeed(380, 900)
+    else
+      $.scrollSpeed(150, 870)
 
-    $('#SubscribeButton').on 'click', ->
 
-    ###

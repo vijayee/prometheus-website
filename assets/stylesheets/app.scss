@@ -68,7 +68,7 @@ $cantoloupe: #ffb56b;
 }
  #Navigation{
    text-align: right;
-   height: 41px;
+   height: 42px;
  }
 /*
 @media screen and (max-width: 720px){
@@ -115,12 +115,12 @@ body{
   font-family: "Quicksand";
   min-width: 818px;
   min-height: 800px;
-  height:4100px;
+  height:4500px;
 }
 
 @font-face {
   font-Family: Spark;
-  src: url(../fonts/spark7.otf);
+  src: url(../fonts/spark4.ttf);
 }
 
 @font-face {
@@ -570,6 +570,7 @@ $circle-width: 800px;
 .content-earth{
   top:120px;
   left:50%;
+  -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   margin: auto auto;
   text-align: center;
@@ -623,6 +624,7 @@ $circle-width: 800px;
 .content-coin{
   top:120px;
   left:50%;
+  -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   margin: auto auto;
   text-align: center;
@@ -643,6 +645,7 @@ $circle-width: 800px;
 .content-clock{
   top:120px;
   left:50%;
+  -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   margin: auto auto;
   text-align: center;
