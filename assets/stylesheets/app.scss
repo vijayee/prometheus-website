@@ -47,7 +47,7 @@ $cantoloupe: #ffb56b;
 /*Fonts*/
 @font-face {
   font-Family: Elephont;
-  src: url(../fonts/Elephont-Regular.otf);
+  src: url(../fonts/Elephont-Regular.ttf);
 }
 
 @font-face {
@@ -120,7 +120,7 @@ body{
 
 @font-face {
   font-Family: Spark;
-  src: url(../fonts/spark4.ttf);
+  src: url(../fonts/spark7.ttf);
 }
 
 @font-face {
@@ -571,6 +571,7 @@ $circle-width: 800px;
   top:120px;
   left:50%;
   -webkit-transform: translate(-50%, 0);
+  -moz-webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   margin: auto auto;
   text-align: center;
@@ -625,6 +626,7 @@ $circle-width: 800px;
   top:120px;
   left:50%;
   -webkit-transform: translate(-50%, 0);
+  -moz-webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   margin: auto auto;
   text-align: center;
@@ -646,6 +648,7 @@ $circle-width: 800px;
   top:120px;
   left:50%;
   -webkit-transform: translate(-50%, 0);
+  -moz-webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   margin: auto auto;
   text-align: center;
