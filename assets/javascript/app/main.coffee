@@ -319,7 +319,6 @@ require
 
     scene7_end.setTween(tween7_end)
     scene7_end.addTo(controller)
-    $.scrollSpeed(3, 5)
 
     if isIOS
       $.scrollSpeed(380, 900)
