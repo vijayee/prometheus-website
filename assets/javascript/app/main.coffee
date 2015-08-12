@@ -26,7 +26,7 @@ require
     ScrollSpeed: '../vendor/jQuery.scrollSpeed-master/jQuery.scrollSpeed'
     breakpoints: '../vendor/breakpoints/breakpoints'
     semantic: '../vendor/semantic/semantic.min'
-  ['jquery', 'ScrollMagic', 'breakpoints','ScrollSpeed', 'pathjs', 'GSAP','Indicators','','semantic']
+  ['jquery', 'ScrollMagic', 'breakpoints','ScrollSpeed', 'pathjs', 'GSAP','Indicators','semantic']
   ($,ScrollMagic)->
     createRouteHandler= (name)->
       ->
@@ -94,8 +94,6 @@ require
       $("#Navigation").addClass("pomegranate")
       $("body").css("overflow","scroll")
       $('#SubscribeContainer').show()
-    $('#GhostBlog').attr('src','http://blog.prometheus.network')
-    $('#MailChimpForm').attr('src','http://eepurl.com/buWoej')
     Path.listen()
     $('.ui.accordion').accordion()
     $('.subscribe-open').on 'click', (e) ->
@@ -335,7 +333,6 @@ require
     $('.up-arrow').click (e)->
       for scene in sceneScroller.slice(0).reverse()
         if scene.scrollOffset() < $(window).scrollTop()
-          #window.scrollTo(0, 0)
           window.scrollTo(0, scene.scrollOffset())
           return
       window.scrollTo(0, 30)
@@ -343,7 +340,6 @@ require
     $('.down-arrow').click (e)->
       for scene in sceneScroller
         if scene.scrollOffset() > $(window).scrollTop()
-
           window.scrollTo(0,scene.scrollOffset())
           if $(window).scrollTop() == 0
             continue

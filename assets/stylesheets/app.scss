@@ -123,10 +123,14 @@ body{
 
 @font-face {
   font-Family: Spark;
-  src: url('../fonts/spark7.eot');
-  src: url('../fonts/spark7.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/spark7.ttf') format('truetype'),
-  url('../fonts/spark7.otf');
+  src: url('../fonts/spark7-webfont.eot');
+  src: url('../fonts/spark7-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/spark7-webfont.woff2') format('woff2'),
+  url('../fonts/spark7-webfont.woff') format('woff'),
+  url('../fonts/spark7-webfont.ttf') format('truetype'),
+  url('../fonts/spark7-webfont.svg#your_iconsregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
